@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class DeathZone : MonoBehaviour
 {
-    private int feeCount = 0; // Counter for the number of "fee" game objects
     public int targetFeeCount = 3; // Target number of "fee" game objects
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+     
         // Check if the colliding object has the tag "fee"
-        if (other.CompareTag("fee"))
+        if (other.CompareTag("Fee"))
         {
-            feeCount++; // Increment the count of "fee" game objects
+            targetFeeCount--; // Increment the count of "fee" game objects
 
             // Check if the target count has been reached
-            if (feeCount >= targetFeeCount)
+            if (targetFeeCount <= 0)
             {
                 // Reload the level
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
