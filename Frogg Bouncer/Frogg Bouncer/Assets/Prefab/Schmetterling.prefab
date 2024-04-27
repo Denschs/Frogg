@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7250137430096395311}
   - component: {fileID: 8700305860405947713}
   - component: {fileID: 7475979685217858009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Schmetterling
   m_TagString: Schmetterling
   m_Icon: {fileID: 0}
