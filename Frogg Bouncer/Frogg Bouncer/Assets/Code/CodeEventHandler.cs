@@ -13,4 +13,7 @@ public class CodeEventHandler : MonoBehaviour
 
     public static event Action<int> GettingPoints;
     public static void Trigger_GettingPoints(int newpoints) { GettingPoints.Invoke(newpoints); }
+
+    public static event Action<int> FairyCounterChanged;
+    public static void Trigger_FairyCounterChanged(int newCounter) { FairyCounterChanged?.Invoke(newCounter); }
 }

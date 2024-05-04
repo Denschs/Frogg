@@ -5,19 +5,33 @@ using TMPro;
 
 public class UIPoints : MonoBehaviour
 {
-    TextMeshProUGUI text;
+    public TextMeshProUGUI foodedText; 
+    public TextMeshProUGUI fairiesText;
+
+    public TextMeshProUGUI foodedPanelText; 
+    public TextMeshProUGUI fairiesPanelText; 
+
     void Start()
     {
         CodeEventHandler.GettingPoints += UpdateScore;
-        text = GetComponent<TextMeshProUGUI>(); 
+        CodeEventHandler.FairyCounterChanged += UpdateFairiesCounter;
     }
 
     private void OnDisable()
     {
         CodeEventHandler.GettingPoints -= UpdateScore;
+        CodeEventHandler.FairyCounterChanged -= UpdateFairiesCounter;
     }
+
     private void UpdateScore(int i)
     {
-        text.text = "Points " + i;
+        foodedText.text = "Fooded: " + i;
+        foodedPanelText.text = "Fooded: " + i;
+    }
+
+    private void UpdateFairiesCounter(int newCounter)
+    {
+        fairiesText.text = "Guests: " + newCounter;
+        fairiesPanelText.text = "Guests: " + newCounter;
     }
 }
