@@ -915,8 +915,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   score: 0
-  proj: {fileID: 0}
-  spriteRendererIndiactor: {fileID: 0}
+  proj: {fileID: 4107059001002464282, guid: 6080c98edbe2f4f4595bea8e9c815231, type: 3}
+  spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
 --- !u!1 &799972205
 GameObject:
@@ -1284,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1764525184
 Transform:
   m_ObjectHideFlags: 0
