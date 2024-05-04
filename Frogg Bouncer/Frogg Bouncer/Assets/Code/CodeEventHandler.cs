@@ -8,6 +8,9 @@ public class CodeEventHandler : MonoBehaviour
     public static event Action LosingLife;
     public static void Trigger_LosingLife() { LosingLife.Invoke(); }
 
+    public static event Action GettingPointsRaw;
+    public static void Trigger_GettingPointsRaw() { GettingPointsRaw.Invoke(); }
+
     public static event Action<int> GettingPoints;
     public static void Trigger_GettingPoints(int newpoints) { GettingPoints.Invoke(newpoints); }
 }
