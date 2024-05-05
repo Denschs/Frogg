@@ -496,7 +496,7 @@ MonoBehaviour:
     Prefab: {fileID: 8755940852193814774, guid: f41a2b6dc81870a4387d9036c68ba734, type: 3}
     Chance: 25
   spawnPoints:
-  - {fileID: 387955757}
+  - {fileID: 799972206}
 --- !u!4 &285281312
 Transform:
   m_ObjectHideFlags: 0
