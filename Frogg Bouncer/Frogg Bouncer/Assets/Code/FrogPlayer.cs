@@ -19,10 +19,18 @@ public class FrogPlayer : MonoBehaviour
     float charedvalueMaxSec = 2;
     [SerializeField] SpriteRenderer spriteRendererIndiactor;
     [SerializeField] GameObject endScreen;
+
+    HighscoreManager highscoreManager;
+    DeathZone deathZone;
+
     void Start()
     {
         attackZone = FindAnyObjectByType<AttackZone>();
         tounge = transform.GetChild(0).gameObject;
+
+        deathZone = FindObjectOfType<DeathZone>();
+        highscoreManager = FindObjectOfType<HighscoreManager>();
+
         CodeEventHandler.LosingLife += LoseLife;
         CodeEventHandler.GettingPointsRaw += GettingHit;
 
@@ -119,6 +127,7 @@ public class FrogPlayer : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
+            highscoreManager.SaveHighscores(score, deathZone.fairiescounter);
             endScreen.SetActive(true);
         }
     }
