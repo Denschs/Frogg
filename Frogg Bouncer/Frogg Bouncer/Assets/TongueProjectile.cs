@@ -9,12 +9,14 @@ public class TongueProjectile : MonoBehaviour
     LineRenderer lineRenderer;
     TrailRenderer trailRenderer;
     Vector3 oringP;
+    FrogPlayer frogPlayer;
 
     void Awake()
     {
         rigi = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponent<LineRenderer>();
         trailRenderer = GetComponent<TrailRenderer>();
+        frogPlayer = FindObjectOfType<FrogPlayer>();
     }
     private void Update()
     {
@@ -35,44 +37,50 @@ public class TongueProjectile : MonoBehaviour
     }
     public void Push(Vector2 dir,float strength)
     {
-        
         rigi.velocity = dir* strength;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!hit)
         {
-            if (collision.tag != "MissedTarget")
+            if (collision.CompareTag("MissedTarget"))
             {
-
-
-                EnemyType typeOfEnemiy = collision.gameObject.GetComponent<EnemyMovement>().GetEnemyType();
-
-
-                print(typeOfEnemiy);
-                if (typeOfEnemiy == EnemyType.Fairy)
-                {
-                    CodeEventHandler.Trigger_LosingLife();
-                }
-                else
-                {
-
-                    CodeEventHandler.Trigger_GettingPointsRaw();
-                }
-                Destroy(collision.gameObject);
+                hit = true;
+                trailRenderer.widthMultiplier = 0.0f;
+                rigi.gravityScale = 0.0f;
+                Push(oringP - transform.position, 5);
+                return;
             }
 
+            EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
+
+            if (enemyMovement != null)
+            {
+                EnemyType typeOfEnemy = enemyMovement.GetEnemyType();
+
+                switch (typeOfEnemy)
+                {
+                    case EnemyType.FairyElectric:
+                        StartCoroutine(frogPlayer.ElectricDebuff());
+                        break;
+                    case EnemyType.FairyIce:
+                        StartCoroutine(frogPlayer.IceDebuff());
+                        break;
+                    case EnemyType.FairyFire:
+                        StartCoroutine(frogPlayer.FireDebuff());
+                        break;
+                    case EnemyType.Butterfly:
+                        CodeEventHandler.Trigger_GettingPointsRaw();
+                        break;
+                }
+            }
+
+            Destroy(collision.gameObject);
             hit = true;
             trailRenderer.widthMultiplier = 0.0f;
-
             rigi.gravityScale = 0.0f;
             Push(oringP - transform.position, 5);
-
-
         }
-
-
-
     }
 
 

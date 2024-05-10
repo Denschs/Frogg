@@ -25,13 +25,8 @@ public class EnemySpawner : MonoBehaviour
         // Endlos Schleife zum Spawnen von Feinden
         while (true)
         {
-            // Warte zwischen 1 und 3 Sekunden
             yield return new WaitForSeconds(Random.Range(1f, 3f));
-
-            // Wähle einen zufälligen Spawnpunkt aus
             Transform selectedSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-            // Spawne einen zufälligen Feind an dem ausgewählten Spawnpunkt
             SpawnRandomEnemy(selectedSpawnPoint.position);
         }
     }

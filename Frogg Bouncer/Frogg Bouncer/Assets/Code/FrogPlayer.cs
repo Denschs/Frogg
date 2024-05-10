@@ -20,6 +20,11 @@ public class FrogPlayer : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRendererIndiactor;
     [SerializeField] GameObject endScreen;
 
+    private bool canShootTongue = true; 
+    public float electricDebuffTime;
+    public float iceDebuffTime;
+    public float fireDebuffTime;
+
     HighscoreManager highscoreManager;
     DeathZone deathZone;
 
@@ -43,37 +48,39 @@ public class FrogPlayer : MonoBehaviour
         {
             charedvalue += Time.deltaTime;
 
-            if(charedvalue <= charedvalueMaxSec / 2) // can propaly done easeyer
+            if (charedvalue <= charedvalueMaxSec / 2) //can propaly done easeyer
             {
-                spriteRendererIndiactor.color = Color.Lerp(Color.green, Color.yellow, charedvalue / (charedvalueMaxSec/2));
+                spriteRendererIndiactor.color = Color.Lerp(Color.green, Color.yellow, charedvalue / (charedvalueMaxSec / 2));
             }
             else
             {
                 spriteRendererIndiactor.color = Color.Lerp(Color.yellow, Color.red, charedvalue - (charedvalueMaxSec / 2) / (charedvalueMaxSec / 2));
             }
-            
+
 
             if (charedvalue > charedvalueMaxSec)
             {
                 charedvalue = charedvalueMaxSec;
             }
-           
+
         }
     }
 
+
     public void Holding(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && canShootTongue)
         {
             pressed = true;
             print("Stared0");
         }
-        else if (context.canceled)
+        else if (context.canceled && canShootTongue)
         {
             GameObject newproj = Instantiate(proj, transform.position, Quaternion.identity);
             newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6 * charedvalue +1);
             charedvalue = 0;
             pressed = false;
+            
         }
     }
  
@@ -82,8 +89,6 @@ public class FrogPlayer : MonoBehaviour
     {
         if (!cooldown)
         {
-            
-
             OldTargetTounge();
             StartCoroutine(CoolDown());
         }
@@ -91,24 +96,42 @@ public class FrogPlayer : MonoBehaviour
 
     private void OldTargetTounge()
     {
-        Tuple<Vector3, EnemyType> attaked = attackZone.ToungeInZone();
-        if (attaked != null)
+        Tuple<Vector3, EnemyType> attacked = attackZone.ToungeInZone();
+        if (attacked != null)
         {
-            tounge.transform.right = attaked.Item1 - tounge.transform.position;
-            tounge.transform.localScale = new Vector3(Vector2.Distance(attaked.Item1, tounge.transform.position) * 1.1f, 1, 1);
-            print(attaked.Item2);
-            if (attaked.Item2 == EnemyType.Fairy)
-            {
-                CodeEventHandler.Trigger_LosingLife();
-            }
-            else
-            {
-                score++;
-                CodeEventHandler.Trigger_GettingPoints(score);
-            }
+            tounge.transform.right = attacked.Item1 - tounge.transform.position;
+            tounge.transform.localScale = new Vector3(Vector2.Distance(attacked.Item1, tounge.transform.position) * 1.1f, 1, 1);
+            print(attacked.Item2);
         }
-       
     }
+
+    public IEnumerator ElectricDebuff()
+    {
+        print("Electric debuff applied");
+        canShootTongue = false;
+        yield return new WaitForSeconds(1);
+        canShootTongue = true; 
+        print("Electric debuff removed");
+    }
+
+    public IEnumerator IceDebuff()
+    {
+        print("Ice debuff applied");
+        charedvalue *= 2;
+        yield return new WaitForSeconds(1);
+        charedvalue /= 2; 
+        print("Ice debuff removed");
+    }
+
+    public IEnumerator FireDebuff()
+    {
+        print("Fire debuff applied");
+        charedvalue /= 2;
+        yield return new WaitForSeconds(1);
+        charedvalue *= 2; 
+        print("Fire debuff removed");
+    }
+
 
     IEnumerator CoolDown()
     {

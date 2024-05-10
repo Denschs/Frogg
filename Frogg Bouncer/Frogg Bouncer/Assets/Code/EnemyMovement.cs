@@ -3,7 +3,9 @@ using UnityEngine;
 public enum EnemyType
 {
     Butterfly,
-    Fairy,
+    FairyElectric,
+    FairyIce,
+    FairyFire,
     None
 }
 public class EnemyMovement : MonoBehaviour
