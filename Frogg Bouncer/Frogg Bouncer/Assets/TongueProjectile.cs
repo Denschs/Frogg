@@ -61,13 +61,13 @@ public class TongueProjectile : MonoBehaviour
                 switch (typeOfEnemy)
                 {
                     case EnemyType.FairyElectric:
-                        StartCoroutine(frogPlayer.ElectricDebuff());
+                        CodeEventHandler.Trigger_ElectricDebufStarter();
                         break;
                     case EnemyType.FairyIce:
-                        StartCoroutine(frogPlayer.IceDebuff());
+                        CodeEventHandler.Trigger_IceDebuffStarter();
                         break;
                     case EnemyType.FairyFire:
-                        StartCoroutine(frogPlayer.FireDebuff());
+                        CodeEventHandler.Trigger_FireDebuffStarter();
                         break;
                     case EnemyType.Butterfly:
                         CodeEventHandler.Trigger_GettingPointsRaw();

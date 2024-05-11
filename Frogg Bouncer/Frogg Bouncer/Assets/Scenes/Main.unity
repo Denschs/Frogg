@@ -505,10 +505,10 @@ MonoBehaviour:
     Chance: 0
   - Name: FairyElectric
     Prefab: {fileID: 8755940852193814774, guid: f41a2b6dc81870a4387d9036c68ba734, type: 3}
-    Chance: 100
+    Chance: 0
   - Name: FairyIce
     Prefab: {fileID: 8755940852193814774, guid: 5f355ff8a18a72547af23526fe9b38e6, type: 3}
-    Chance: 0
+    Chance: 100
   - Name: FairyFire
     Prefab: {fileID: 8755940852193814774, guid: e44d8a71e7dffc64db057775c3649b47, type: 3}
     Chance: 0
@@ -1019,11 +1019,14 @@ MonoBehaviour:
   hp: 3
   score: 0
   proj: {fileID: 4107059001002464282, guid: 6080c98edbe2f4f4595bea8e9c815231, type: 3}
+  charedvalue: 0
   spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
-  electricDebuffTime: 1.5
-  iceDebuffTime: 3
-  fireDebuffTime: 3
+  electricDebuffTime: 5
+  iceDebuffTime: 5
+  fireDebuffTime: 5
+  iceDebuffValue: 25
+  fireDebuffValue: 25
 --- !u!1 &799972205
 GameObject:
   m_ObjectHideFlags: 0

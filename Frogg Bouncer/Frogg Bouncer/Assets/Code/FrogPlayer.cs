@@ -15,7 +15,7 @@ public class FrogPlayer : MonoBehaviour
     [SerializeField] int score = 0;
     [SerializeField] GameObject proj;
     bool pressed;
-    float charedvalue;
+    public float charedvalue;
     float charedvalueMaxSec = 2;
     [SerializeField] SpriteRenderer spriteRendererIndiactor;
     [SerializeField] GameObject endScreen;
@@ -24,6 +24,12 @@ public class FrogPlayer : MonoBehaviour
     public float electricDebuffTime;
     public float iceDebuffTime;
     public float fireDebuffTime;
+
+    public float iceDebuffValue;
+    public float fireDebuffValue;
+
+    bool isIce;
+    bool isFire;
 
     HighscoreManager highscoreManager;
     DeathZone deathZone;
@@ -38,6 +44,9 @@ public class FrogPlayer : MonoBehaviour
 
         CodeEventHandler.LosingLife += LoseLife;
         CodeEventHandler.GettingPointsRaw += GettingHit;
+        CodeEventHandler.ElectricDebufStarter += ElectricDebuffStarter;
+        CodeEventHandler.IceDebuffStarter += IceDebuffStarter;
+        CodeEventHandler.FireDebuffStarter += FireDebuffStarter;
 
 
 
@@ -46,7 +55,18 @@ public class FrogPlayer : MonoBehaviour
     {
         if (pressed)
         {
-            charedvalue += Time.deltaTime;
+            if(isIce)
+            {
+                charedvalue += Time.deltaTime / iceDebuffValue;
+            }
+            else if(isFire)
+            {
+                charedvalue += Time.deltaTime * fireDebuffValue;
+            }
+            else
+            {
+                charedvalue += Time.deltaTime;
+            }
 
             if (charedvalue <= charedvalueMaxSec / 2) //can propaly done easeyer
             {
@@ -105,11 +125,26 @@ public class FrogPlayer : MonoBehaviour
         }
     }
 
+    public void ElectricDebuffStarter()
+    {
+        StartCoroutine(ElectricDebuff());
+    }
+
+    public void IceDebuffStarter()
+    {
+        StartCoroutine(IceDebuff());
+    }
+
+    public void FireDebuffStarter()
+    {
+        StartCoroutine(FireDebuff());
+    }
+
     public IEnumerator ElectricDebuff()
     {
         print("Electric debuff applied");
         canShootTongue = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(electricDebuffTime);
         canShootTongue = true; 
         print("Electric debuff removed");
     }
@@ -117,18 +152,18 @@ public class FrogPlayer : MonoBehaviour
     public IEnumerator IceDebuff()
     {
         print("Ice debuff applied");
-        charedvalue *= 2;
-        yield return new WaitForSeconds(1);
-        charedvalue /= 2; 
+        isIce = true;
+        yield return new WaitForSeconds(iceDebuffTime);
+        isIce = false;
         print("Ice debuff removed");
     }
 
     public IEnumerator FireDebuff()
     {
         print("Fire debuff applied");
-        charedvalue /= 2;
-        yield return new WaitForSeconds(1);
-        charedvalue *= 2; 
+        isFire = true;
+        yield return new WaitForSeconds(fireDebuffTime);
+        isFire = false; 
         print("Fire debuff removed");
     }
 
@@ -164,5 +199,8 @@ public class FrogPlayer : MonoBehaviour
     private void OnDisable()
     {
         CodeEventHandler.LosingLife -= LoseLife;
+        CodeEventHandler.ElectricDebufStarter -= ElectricDebuffStarter;
+        CodeEventHandler.IceDebuffStarter -= IceDebuffStarter;
+        CodeEventHandler.FireDebuffStarter -= FireDebuffStarter;
     }
 }

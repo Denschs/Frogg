@@ -16,4 +16,13 @@ public class CodeEventHandler : MonoBehaviour
 
     public static event Action<int> FairyCounterChanged;
     public static void Trigger_FairyCounterChanged(int newCounter) { FairyCounterChanged?.Invoke(newCounter); }
+
+    public static event Action ElectricDebufStarter;
+    public static void Trigger_ElectricDebufStarter() { ElectricDebufStarter.Invoke(); }
+
+    public static event Action IceDebuffStarter;
+    public static void Trigger_IceDebuffStarter() { IceDebuffStarter.Invoke(); }
+
+    public static event Action FireDebuffStarter;
+    public static void Trigger_FireDebuffStarter() { FireDebuffStarter.Invoke(); }
 }
