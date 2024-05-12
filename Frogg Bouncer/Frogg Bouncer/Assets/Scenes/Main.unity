@@ -1163,11 +1163,11 @@ MonoBehaviour:
   charedvalue: 0
   spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
-  electricDebuffTime: 5
-  iceDebuffTime: 5
-  fireDebuffTime: 5
-  iceDebuffValue: 25
-  fireDebuffValue: 25
+  electricDebuffTime: 2
+  iceDebuffTime: 4
+  fireDebuffTime: 4
+  iceDebuffValue: 20
+  fireDebuffValue: 5
   textMeshProUGUI: {fileID: 514183423}
 --- !u!61 &796714278
 BoxCollider2D:
