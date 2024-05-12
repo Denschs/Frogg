@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7093881278712991829}
   - component: {fileID: 5983272291527160309}
   m_Layer: 3
-  m_Name: Circle
+  m_Name: ToungeCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
+  extraSpeedFactor: 1.75
 --- !u!58 &7093881278712991829
 CircleCollider2D:
   m_ObjectHideFlags: 0

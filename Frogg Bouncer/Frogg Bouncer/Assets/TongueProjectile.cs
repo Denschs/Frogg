@@ -6,6 +6,7 @@ public class TongueProjectile : MonoBehaviour
 {
     Rigidbody2D rigi;
     [SerializeField] bool hit = false;
+    [SerializeField] float extraSpeedFactor = 1.5f;
     LineRenderer lineRenderer;
     TrailRenderer trailRenderer;
     Vector3 oringP;
@@ -17,19 +18,15 @@ public class TongueProjectile : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         trailRenderer = GetComponent<TrailRenderer>();
         frogPlayer = FindObjectOfType<FrogPlayer>();
+
+        rigi.gravityScale = Mathf.Pow(extraSpeedFactor, 2);
     }
     private void Update()
     {
         if (hit)
         {
             Vector3[] points = new[] { oringP, transform.position };
-            lineRenderer.SetPositions(points);
-            
-            if(Vector2.Distance(transform.position, oringP) < 0.01f)
-            {
-                CodeEventHandler.Trigger_ToungeIsBack();
-                Destroy(gameObject);
-            }
+            lineRenderer.SetPositions(points);                    
         }
     }
     private void Start()
@@ -38,7 +35,7 @@ public class TongueProjectile : MonoBehaviour
     }
     public void Push(Vector2 dir,float strength)
     {
-        rigi.velocity = dir* strength;
+        rigi.velocity = dir* strength * extraSpeedFactor;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -52,35 +49,47 @@ public class TongueProjectile : MonoBehaviour
                 Push(oringP - transform.position, 5);
                 return;
             }
-
-            EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
-
-            if (enemyMovement != null)
+            else if (!collision.CompareTag("Player"))
             {
-                EnemyType typeOfEnemy = enemyMovement.GetEnemyType();
+                EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
 
-                switch (typeOfEnemy)
+                if (enemyMovement != null)
                 {
-                    case EnemyType.FairyElectric:
-                        CodeEventHandler.Trigger_ElectricDebufStarter();
-                        break;
-                    case EnemyType.FairyIce:
-                        CodeEventHandler.Trigger_IceDebuffStarter();
-                        break;
-                    case EnemyType.FairyFire:
-                        CodeEventHandler.Trigger_FireDebuffStarter();
-                        break;
-                    case EnemyType.Butterfly:
-                        CodeEventHandler.Trigger_GettingPointsRaw();
-                        break;
+                    EnemyType typeOfEnemy = enemyMovement.GetEnemyType();
+
+                    switch (typeOfEnemy)
+                    {
+                        case EnemyType.FairyElectric:
+                            CodeEventHandler.Trigger_ElectricDebufStarter();
+                            break;
+                        case EnemyType.FairyIce:
+                            CodeEventHandler.Trigger_IceDebuffStarter();
+                            break;
+                        case EnemyType.FairyFire:
+                            CodeEventHandler.Trigger_FireDebuffStarter();
+                            break;
+                        case EnemyType.Butterfly:
+                            CodeEventHandler.Trigger_GettingPointsRaw();
+                            break;
+                    }
                 }
+
+                Destroy(collision.gameObject);
+                hit = true;
+                trailRenderer.widthMultiplier = 0.0f;
+                rigi.gravityScale = 0.0f;
+                Push(oringP - transform.position, 5);
             }
 
-            Destroy(collision.gameObject);
-            hit = true;
-            trailRenderer.widthMultiplier = 0.0f;
-            rigi.gravityScale = 0.0f;
-            Push(oringP - transform.position, 5);
+            
+        }
+        else
+        {        
+            if (collision.CompareTag("Player"))
+            {         
+                CodeEventHandler.Trigger_ToungeIsBack();
+                Destroy(gameObject);
+            }
         }
     }
 

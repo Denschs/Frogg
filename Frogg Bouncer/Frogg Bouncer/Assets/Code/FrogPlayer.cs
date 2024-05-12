@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class FrogPlayer : MonoBehaviour
 {
     AttackZone attackZone;
-    bool cooldown = false;
+    [SerializeField] bool cooldown = false;
     GameObject tounge;
     [SerializeField] int hp = 3;
     [SerializeField] int score = 0;
