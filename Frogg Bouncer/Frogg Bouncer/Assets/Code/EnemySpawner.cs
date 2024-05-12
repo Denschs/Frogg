@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy[] enemies;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float minSpawnInterval = 1f;
+    [SerializeField] private float maxSpawnInterval = 3f;
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         // Endlos Schleife zum Spawnen von Feinden
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+            yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
             Transform selectedSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             SpawnRandomEnemy(selectedSpawnPoint.position);
         }
