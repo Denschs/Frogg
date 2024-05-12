@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 
 public class FrogPlayer : MonoBehaviour
@@ -33,6 +34,8 @@ public class FrogPlayer : MonoBehaviour
 
     HighscoreManager highscoreManager;
     DeathZone deathZone;
+
+    [SerializeField] TextMeshProUGUI textMeshProUGUI; // Just for PlaceHolder Feedback
 
     void Start()
     {
@@ -155,28 +158,40 @@ public class FrogPlayer : MonoBehaviour
     public IEnumerator ElectricDebuff()
     {
         print("Electric debuff applied");
+        textMeshProUGUI.text = "Thats Shocking";
+        textMeshProUGUI.color = Color.yellow;
         canShootTongue = false;
         yield return new WaitForSeconds(electricDebuffTime);
         canShootTongue = true; 
         print("Electric debuff removed");
+
+        textMeshProUGUI.text = "";
     }
 
     public IEnumerator IceDebuff()
     {
         print("Ice debuff applied");
+        textMeshProUGUI.text = "Cold feet";
+        textMeshProUGUI.color = Color.blue;
         isIce = true;
         yield return new WaitForSeconds(iceDebuffTime);
         isIce = false;
         print("Ice debuff removed");
+
+        textMeshProUGUI.text = "";
     }
 
     public IEnumerator FireDebuff()
     {
         print("Fire debuff applied");
+        textMeshProUGUI.text = "This Frog is on Fire";
+        textMeshProUGUI.color = Color.red;
         isFire = true;
         yield return new WaitForSeconds(fireDebuffTime);
         isFire = false; 
         print("Fire debuff removed");
+
+        textMeshProUGUI.text = "";
     }
 
 
