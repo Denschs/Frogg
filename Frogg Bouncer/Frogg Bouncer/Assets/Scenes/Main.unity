@@ -486,7 +486,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &285281311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,16 +502,16 @@ MonoBehaviour:
   enemies:
   - Name: Schmetterling
     Prefab: {fileID: 5385293560912809957, guid: 5041f0cecccbd5840bfb7541b5cb2a54, type: 3}
-    Chance: 0
+    Chance: 55
   - Name: FairyElectric
     Prefab: {fileID: 8755940852193814774, guid: f41a2b6dc81870a4387d9036c68ba734, type: 3}
-    Chance: 0
+    Chance: 15
   - Name: FairyIce
     Prefab: {fileID: 8755940852193814774, guid: 5f355ff8a18a72547af23526fe9b38e6, type: 3}
-    Chance: 100
+    Chance: 15
   - Name: FairyFire
     Prefab: {fileID: 8755940852193814774, guid: e44d8a71e7dffc64db057775c3649b47, type: 3}
-    Chance: 0
+    Chance: 15
   spawnPoints:
   - {fileID: 799972206}
 --- !u!4 &285281312

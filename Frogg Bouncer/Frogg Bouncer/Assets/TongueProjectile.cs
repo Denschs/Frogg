@@ -27,6 +27,7 @@ public class TongueProjectile : MonoBehaviour
             
             if(Vector2.Distance(transform.position, oringP) < 0.01f)
             {
+                CodeEventHandler.Trigger_ToungeIsBack();
                 Destroy(gameObject);
             }
         }

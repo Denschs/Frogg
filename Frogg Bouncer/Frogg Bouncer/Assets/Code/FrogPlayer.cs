@@ -48,6 +48,8 @@ public class FrogPlayer : MonoBehaviour
         CodeEventHandler.IceDebuffStarter += IceDebuffStarter;
         CodeEventHandler.FireDebuffStarter += FireDebuffStarter;
 
+        CodeEventHandler.ToungeIsBack += CoolDownEnd;
+
 
 
     }
@@ -89,23 +91,33 @@ public class FrogPlayer : MonoBehaviour
 
     public void Holding(InputAction.CallbackContext context)
     {
+
         if (context.started && canShootTongue)
         {
             pressed = true;
-            print("Stared0");
+           
         }
         else if (context.canceled && canShootTongue)
         {
-            GameObject newproj = Instantiate(proj, transform.position, Quaternion.identity);
-            newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6 * charedvalue +1);
-            charedvalue = 0;
+            if (!cooldown)
+            {
+                GameObject newproj = Instantiate(proj, transform.position, Quaternion.identity);
+                newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6 * charedvalue + 1);
+                charedvalue = 0;
+                cooldown = true;
+            }
             pressed = false;
-            
+
+
         }
     }
- 
+    void CoolDownEnd()
+    {
+        cooldown = false;
+    }
 
-    void OnTounge() // Because of Send Message in Player Input this Method will be called, maybe change later to Unity Events
+
+    void OnTounge() 
     {
         if (!cooldown)
         {
