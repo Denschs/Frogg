@@ -37,6 +37,14 @@ public class FrogPlayer : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI textMeshProUGUI; // Just for PlaceHolder Feedback
 
+    private AudioSource audioSource;
+    public AudioClip tongueClip;
+    public AudioClip butterflyPassClip;
+    public AudioClip electroClip;
+    public AudioClip iceClip;
+    public AudioClip fireClip;
+    public AudioClip[] gulbClip;
+
     void Start()
     {
         attackZone = FindAnyObjectByType<AttackZone>();
@@ -53,7 +61,7 @@ public class FrogPlayer : MonoBehaviour
 
         CodeEventHandler.ToungeIsBack += CoolDownEnd;
 
-
+        audioSource = GetComponentInChildren<AudioSource>();
 
     }
     private void Update()
@@ -107,6 +115,8 @@ public class FrogPlayer : MonoBehaviour
                 GameObject newproj = Instantiate(proj, transform.position, Quaternion.identity);
                 newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6 * charedvalue + 1);
                 charedvalue = 0;
+                audioSource.clip = tongueClip;
+                audioSource.Play();
                 cooldown = true;
             }
             pressed = false;
@@ -158,6 +168,8 @@ public class FrogPlayer : MonoBehaviour
     public IEnumerator ElectricDebuff()
     {
         print("Electric debuff applied");
+        audioSource.clip = electroClip;
+        audioSource.Play();
         textMeshProUGUI.text = "Thats Shocking";
         textMeshProUGUI.color = Color.yellow;
         canShootTongue = false;
@@ -171,6 +183,8 @@ public class FrogPlayer : MonoBehaviour
     public IEnumerator IceDebuff()
     {
         print("Ice debuff applied");
+        audioSource.clip = iceClip;
+        audioSource.Play();
         textMeshProUGUI.text = "Cold feet";
         textMeshProUGUI.color = Color.blue;
         isIce = true;
@@ -184,6 +198,8 @@ public class FrogPlayer : MonoBehaviour
     public IEnumerator FireDebuff()
     {
         print("Fire debuff applied");
+        audioSource.clip = fireClip;
+        audioSource.Play();
         textMeshProUGUI.text = "This Frog is on Fire";
         textMeshProUGUI.color = Color.red;
         isFire = true;
@@ -209,6 +225,8 @@ public class FrogPlayer : MonoBehaviour
     }
     public void LoseLife()
     {
+        audioSource.clip = butterflyPassClip;
+        audioSource.Play();
         hp--;
         if (hp <= 0)
         {
@@ -218,6 +236,8 @@ public class FrogPlayer : MonoBehaviour
     }
     public void GettingHit()
     {
+        audioSource.clip = gulbClip[UnityEngine.Random.Range(0, gulbClip.Length)];
+        audioSource.Play();
         score++;
         CodeEventHandler.Trigger_GettingPoints(score);
     }
