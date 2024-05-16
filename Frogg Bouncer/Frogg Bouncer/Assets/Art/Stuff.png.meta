@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1e594b422c7a2b419dd2e0960a424ce
+guid: 8a599619d1e490347a8bcb258c654183
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bridge
+      name: Tree
       rect:
         serializedVersion: 2
-        x: 112
-        y: 800
-        width: 354
-        height: 268
+        x: 36
+        y: 42
+        width: 284
+        height: 403
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c03dc049ec0b4f4ca3ec19aad7bdc8e
-      internalID: 2056829937
+      spriteID: 138a88b2601174e47a81d0a560597efa
+      internalID: 664310718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Castle_1
+      name: Stump
       rect:
         serializedVersion: 2
-        x: 642
-        y: 1012
-        width: 47
-        height: 4
+        x: 349
+        y: 75
+        width: 90
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9770bf94e91e0f84c89981431e4400c1
-      internalID: -1118818506
+      spriteID: 27337389893f4e644916b82704b715dc
+      internalID: -266142746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Castle
+      name: GrasB
       rect:
         serializedVersion: 2
-        x: 46
-        y: 50
-        width: 614
-        height: 717
+        x: 543
+        y: 67
+        width: 18
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6ecddb5297ee8647a4c389765102e3d
-      internalID: 1188584910
+      spriteID: b5dbeb55727b87f4da24008a37170914
+      internalID: -94174462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower
+      name: GrasC
       rect:
         serializedVersion: 2
-        x: 700
-        y: 47
-        width: 325
-        height: 914
+        x: 591
+        y: 67
+        width: 70
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 040ec5e158013234c9ac6960338a469c
-      internalID: -1147547958
+      spriteID: 3705f18c6580bbb4dad29188156e9fde
+      internalID: -1654185487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 79
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e4460cbf141f74fb147372521349ab
+      internalID: 1065700201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrasA
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 66
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d226f29f7b153c42b97adcf36a83332
+      internalID: 349557092
       vertices: []
       indices: 
       edges: []
@@ -191,11 +233,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bridge: 2056829937
-      Castle: 1188584910
-      Castle_1: -1118818506
-      Castle_4: -871476998
-      Tower: -1147547958
+      Flower: 1065700201
+      GrasA: 349557092
+      GrasB: -94174462
+      GrasC: -1654185487
+      Stuff_2: 1504009561
+      Stuff_3: -1463769890
+      Stuff_4: -1917498318
+      Stuff_5: -890418889
+      Stuff_9: -1639468956
+      Stump: -266142746
+      Tree: 664310718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
