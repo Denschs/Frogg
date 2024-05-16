@@ -10,7 +10,7 @@ using UnityEngine.Audio;
         public void SetMainVolume(float volume)
         {
             audioMixer.SetFloat("MainVolume", volume);
-            Debug.Log("MainVolume");
+            Debug.Log(volume);
         }
         public void SetMusicVolume(float volume)
         {
