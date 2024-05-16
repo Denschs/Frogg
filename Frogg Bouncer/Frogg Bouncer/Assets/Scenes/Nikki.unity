@@ -907,9 +907,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1718549585
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.011600494, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -3547,6 +3547,12 @@ MonoBehaviour:
   iceDebuffValue: 5
   fireDebuffValue: 5
   textMeshProUGUI: {fileID: 514183423}
+  tongueClip: {fileID: 0}
+  butterflyPassClip: {fileID: 0}
+  electroClip: {fileID: 0}
+  iceClip: {fileID: 0}
+  fireClip: {fileID: 0}
+  gulbClip: []
 --- !u!61 &796714278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5052,9 +5058,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1718549585
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5788,7 +5794,7 @@ Transform:
   m_GameObject: {fileID: 1764525183}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.402, y: -0.057, z: 0}
+  m_LocalPosition: {x: 0.36, y: -0.38, z: 0}
   m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
