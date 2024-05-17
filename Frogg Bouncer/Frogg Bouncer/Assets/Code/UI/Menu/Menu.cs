@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
         //introCanvas.SetActive(true);
         mainMenu.SetActive(false);
 
-        SceneManager.LoadScene("_Main");
+        SceneManager.LoadScene("Main");
     }
     
     public void showCredits()

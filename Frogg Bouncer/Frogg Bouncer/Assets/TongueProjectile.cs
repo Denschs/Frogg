@@ -12,6 +12,10 @@ public class TongueProjectile : MonoBehaviour
     Vector3 oringP;
     FrogPlayer frogPlayer;
 
+
+    public AudioClip fairyGulbClip;
+    public AudioClip butterflyGulbClip;
+
     void Awake()
     {
         rigi = GetComponent<Rigidbody2D>();
@@ -60,15 +64,19 @@ public class TongueProjectile : MonoBehaviour
                     switch (typeOfEnemy)
                     {
                         case EnemyType.FairyElectric:
+                            //AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
                             CodeEventHandler.Trigger_ElectricDebufStarter();
                             break;
                         case EnemyType.FairyIce:
+                            AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
                             CodeEventHandler.Trigger_IceDebuffStarter();
                             break;
                         case EnemyType.FairyFire:
+                            AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
                             CodeEventHandler.Trigger_FireDebuffStarter();
                             break;
                         case EnemyType.Butterfly:
+                            AudioSource.PlayClipAtPoint(butterflyGulbClip, Camera.main.transform.position);
                             CodeEventHandler.Trigger_GettingPointsRaw();
                             break;
                     }
