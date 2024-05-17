@@ -43,12 +43,13 @@ public class PauseMenu : MonoBehaviour
     {
         ResumePause();
         SceneManager.LoadScene("MainMenu");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+       
         Debug.Log("Spiel Reset");
     }
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Application.Quit();
     }
     /*
     private void OnEnable()
