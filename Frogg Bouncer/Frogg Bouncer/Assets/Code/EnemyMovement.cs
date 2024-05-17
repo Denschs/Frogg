@@ -11,6 +11,7 @@ public enum EnemyType
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] EnemyType enemyType;
+    [SerializeField] float accelerationValue = 0.8f;
     public float speed = 3f;
 
     private void Update()
@@ -22,6 +23,9 @@ public class EnemyMovement : MonoBehaviour
     {
         // Bewege den Feind nach links basierend auf der Geschwindigkeit
         transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+        speed += Time.deltaTime;
+
     }
     public EnemyType GetEnemyType()
     {
