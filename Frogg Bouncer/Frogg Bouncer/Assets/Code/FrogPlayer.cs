@@ -16,8 +16,10 @@ public class FrogPlayer : MonoBehaviour
     [SerializeField] int score = 0;
     [SerializeField] GameObject proj;
     bool pressed;
+    [SerializeField] bool reversed;
     public float charedvalue;
-    float charedvalueMaxSec = 2;
+    [SerializeField] float charedvalueMaxSec = 2;
+
     [SerializeField] SpriteRenderer spriteRendererIndiactor;
     [SerializeField] GameObject endScreen;
 
@@ -44,6 +46,7 @@ public class FrogPlayer : MonoBehaviour
     public AudioClip electroClip;
     public AudioClip iceClip;
     public AudioClip fireClip;
+    public AudioClip[] gulbClip;
 
     void Start()
     {
@@ -63,7 +66,9 @@ public class FrogPlayer : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
 
         trgetAimGraphic = FindAnyObjectByType<TargetAimGraphic>();
-        trgetAimGraphic?.SetCharedMax(charedvalueMaxSec);
+        trgetAimGraphic?.SetCharedMax(charedvalueMaxSec,reversed);
+
+        charedvalue = ((!reversed) ? 0 : charedvalueMaxSec);
 
     }
     private void Update()
@@ -72,15 +77,15 @@ public class FrogPlayer : MonoBehaviour
         {
             if(isIce)
             {
-                charedvalue += Time.deltaTime / iceDebuffValue;
+                charedvalue += Time.deltaTime / iceDebuffValue * ((!reversed) ? 1 : -1);
             }
             else if(isFire)
             {
-                charedvalue += Time.deltaTime * fireDebuffValue;
+                charedvalue += Time.deltaTime * fireDebuffValue * ((!reversed) ? 1 : -1); 
             }
             else
             {
-                charedvalue += Time.deltaTime;
+                charedvalue += Time.deltaTime * ((!reversed) ? 1 : -1); 
             }
 
             if (charedvalue <= charedvalueMaxSec / 2) //can propaly done easeyer
@@ -93,10 +98,11 @@ public class FrogPlayer : MonoBehaviour
             }
 
 
-            if (charedvalue > charedvalueMaxSec)
+            if ((!reversed) ? (charedvalue > charedvalueMaxSec) : (charedvalue <= 0))
             {
-                charedvalue = charedvalueMaxSec;
+                charedvalue = (!reversed) ? charedvalueMaxSec : 0;
             }
+
             trgetAimGraphic?.SetTargetPostion(charedvalue);
 
         }
@@ -119,7 +125,7 @@ public class FrogPlayer : MonoBehaviour
             {
                 GameObject newproj = Instantiate(proj, transform.position, Quaternion.identity);
                 newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6 * charedvalue + 1);
-                charedvalue = 0;
+                charedvalue = (!reversed) ? 0 : charedvalueMaxSec;
                 audioSource.clip = tongueClip;
                 audioSource.Play();
                 cooldown = true;
@@ -231,7 +237,8 @@ public class FrogPlayer : MonoBehaviour
     }
     public void LoseLife()
     {
-        AudioSource.PlayClipAtPoint(butterflyPassClip, Camera.main.transform.position);
+        audioSource.clip = butterflyPassClip;
+        audioSource.Play();
         hp--;
         if (hp <= 0)
         {
@@ -241,6 +248,8 @@ public class FrogPlayer : MonoBehaviour
     }
     public void GettingHit()
     {
+        audioSource.clip = gulbClip[UnityEngine.Random.Range(0, gulbClip.Length)];
+        audioSource.Play();
         score++;
         CodeEventHandler.Trigger_GettingPoints(score);
     }

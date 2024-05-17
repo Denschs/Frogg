@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!70 &142209218
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -733,6 +733,7 @@ MonoBehaviour:
   - {fileID: 799972206}
   minSpawnInterval: 1
   maxSpawnInterval: 2.5
+  noAcclearationEnemey: 1
 --- !u!4 &285281312
 Transform:
   m_ObjectHideFlags: 0
@@ -2801,8 +2802,9 @@ MonoBehaviour:
   hp: 3
   score: 0
   proj: {fileID: 4107059001002464282, guid: 6080c98edbe2f4f4595bea8e9c815231, type: 3}
-  reversed: 0
+  reversed: 1
   charedvalue: 0
+  charedvalueMaxSec: 1.5
   spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
   electricDebuffTime: 2

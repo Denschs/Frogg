@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float minSpawnInterval = 1f;
     [SerializeField] private float maxSpawnInterval = 3f;
 
+    [SerializeField] private bool noAcclearationEnemey = false;
+
     private void Start()
     {
         // Starte die Methode zum Spawnen von Feinden
@@ -36,7 +38,12 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnRandomEnemy(Vector2 position)
     {
         Enemy randomEnemy = GetRandomEnemy();
-        Instantiate(randomEnemy.Prefab, position, Quaternion.identity);
+        GameObject enemy = Instantiate(randomEnemy.Prefab, position, Quaternion.identity);
+        if (noAcclearationEnemey) // Wahrscheinlich nicht ideal aber für jetzt erstmal ok.
+        {
+            enemy.GetComponent<EnemyMovement>()?.SetaccelerationValue(0); 
+        }
+
         Debug.Log("<color=" + randomEnemy.Name + ">●</color> Chance: <b>" + randomEnemy.Chance + "</b>%");
     }
 

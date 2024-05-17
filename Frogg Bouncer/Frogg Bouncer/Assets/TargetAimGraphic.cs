@@ -9,6 +9,9 @@ public class TargetAimGraphic : MonoBehaviour
     bool fired;
     SpriteRenderer spriteRenderer;
     float spriteColorAlpha = 0;
+    float transationValue = 0.15f;
+
+    bool reversedDir;
 
     private void Start()
     {
@@ -26,9 +29,10 @@ public class TargetAimGraphic : MonoBehaviour
         }
     }
 
-    public void SetCharedMax(float charedMaxValue)
+    public void SetCharedMax(float charedMaxValue,bool reversed)
     {
         charedMax = charedMaxValue;
+        reversedDir = reversed;
     }
 
     public void SetTargetPostion(float charging)
@@ -36,7 +40,7 @@ public class TargetAimGraphic : MonoBehaviour
         // Werte hier nach Augenmaﬂ
         transform.position = new Vector3(startpos + (15* (charging / charedMax)), transform.position.y, transform.position.z);
         
-        if(charging < charedMax*0.15)
+        if((!reversedDir) ? (charging < charedMax* transationValue) : (charging > charedMax*(1- transationValue)))
         {
             spriteColorAlpha = (byte)Mathf.Floor(255 * (charging / (charedMax * 0.15f)));
             spriteRenderer.color = new Color32(255, 255, 255, (byte)spriteColorAlpha);

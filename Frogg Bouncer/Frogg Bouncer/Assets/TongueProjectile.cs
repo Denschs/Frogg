@@ -12,7 +12,6 @@ public class TongueProjectile : MonoBehaviour
     Vector3 oringP;
     FrogPlayer frogPlayer;
 
-
     public AudioClip fairyGulbClip;
     public AudioClip butterflyGulbClip;
 

@@ -24,11 +24,15 @@ public class EnemyMovement : MonoBehaviour
         // Bewege den Feind nach links basierend auf der Geschwindigkeit
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        speed += Time.deltaTime;
+        speed += Time.deltaTime* accelerationValue;
 
     }
     public EnemyType GetEnemyType()
     {
         return enemyType;
+    }
+    public void SetaccelerationValue(float newaccelerationValue)
+    {
+          accelerationValue = newaccelerationValue;
     }
 }
