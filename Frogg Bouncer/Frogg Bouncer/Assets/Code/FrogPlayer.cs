@@ -34,6 +34,7 @@ public class FrogPlayer : MonoBehaviour
 
     HighscoreManager highscoreManager;
     DeathZone deathZone;
+    TargetAimGraphic trgetAimGraphic;
 
     [SerializeField] TextMeshProUGUI textMeshProUGUI; // Just for PlaceHolder Feedback
 
@@ -58,10 +59,12 @@ public class FrogPlayer : MonoBehaviour
         CodeEventHandler.ElectricDebufStarter += ElectricDebuffStarter;
         CodeEventHandler.IceDebuffStarter += IceDebuffStarter;
         CodeEventHandler.FireDebuffStarter += FireDebuffStarter;
-
         CodeEventHandler.ToungeIsBack += CoolDownEnd;
 
         audioSource = GetComponentInChildren<AudioSource>();
+
+        trgetAimGraphic = FindAnyObjectByType<TargetAimGraphic>();
+        trgetAimGraphic?.SetCharedMax(charedvalueMaxSec);
 
     }
     private void Update()
@@ -95,6 +98,7 @@ public class FrogPlayer : MonoBehaviour
             {
                 charedvalue = charedvalueMaxSec;
             }
+            trgetAimGraphic?.SetTargetPostion(charedvalue);
 
         }
     }
@@ -106,7 +110,9 @@ public class FrogPlayer : MonoBehaviour
         if (context.started && canShootTongue)
         {
             pressed = true;
-           
+            trgetAimGraphic?.TongueCharging();
+
+
         }
         else if (context.canceled && canShootTongue)
         {
@@ -120,6 +126,7 @@ public class FrogPlayer : MonoBehaviour
                 cooldown = true;
             }
             pressed = false;
+            trgetAimGraphic?.ToungeFired();
 
 
         }
