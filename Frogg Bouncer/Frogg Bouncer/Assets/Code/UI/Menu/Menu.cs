@@ -9,12 +9,24 @@ public class Menu : MonoBehaviour
     public GameObject introCanvas;
     public GameObject creditsConvas;
     public GameObject howToConvas;
+
+    public AudioSource src;
+    public AudioClip srcOne;
+
+
     public void playGame()
     {
-        //introCanvas.SetActive(true);
-        mainMenu.SetActive(false);
+        src.PlayOneShot(srcOne);
+        StartCoroutine(_PlayGame());
 
+        //introCanvas.SetActive(true);
+        //SceneManager.LoadScene("Main");
+    }
+    private IEnumerator _PlayGame()
+    {
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Main");
+        //mainMenu.SetActive(false);
     }
     
     public void showCredits()
