@@ -1170,7 +1170,7 @@ TextureImporter:
       name: Ponytail
       rect:
         serializedVersion: 2
-        x: 1550
+        x: 1551
         y: 904
         width: 104
         height: 122
@@ -7114,6 +7114,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Ponytail_Fire
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 895
+        width: 115
+        height: 135
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125342bd2ad38dd40a829aed095caf9a
+      internalID: 1111760407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ponytail_Ice
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 739
+        width: 116
+        height: 138
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9d287048603d94eace07b2ca4a7c01
+      internalID: -88954559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -7157,6 +7199,8 @@ TextureImporter:
       Knot: -1958621562
       KnotandBand: -1660648222
       Ponytail: -2049800619
+      Ponytail_Fire: 1111760407
+      Ponytail_Ice: -88954559
       Spark1: -882972155
       Spark2: -1759340295
   mipmapLimitGroupName: 
