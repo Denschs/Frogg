@@ -21,16 +21,33 @@ using UnityEngine.Audio;
             audioMixer.SetFloat("SFXVolume", volume);
         }
 
-        public void MuteToggle(bool muted)
+        public void MusicMuteToggle(bool muted)
         {
             if (muted)
             {
-                AudioListener.volume = 0;
+                //AudioListener.volume = 0;
+                audioMixer.SetFloat("MusicVolume", -80);
             }
             else
             {
-                AudioListener.volume = 1;
+            audioMixer.SetFloat("MusicVolume", 0);
+            //AudioListener.volume = 1;
             }
 
         }
+
+    public void SFXMuteToggle(bool muted)
+    {
+        if (muted)
+        {
+            //AudioListener.volume = 0;
+            audioMixer.SetFloat("SFXVolume", -80);
+        }
+        else
+        {
+            audioMixer.SetFloat("SFXVolume", 0);
+            //AudioListener.volume = 1;
+        }
+
     }
+}

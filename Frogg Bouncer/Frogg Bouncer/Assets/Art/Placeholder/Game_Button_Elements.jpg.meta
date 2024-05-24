@@ -118,7 +118,7 @@ TextureImporter:
         width: 857
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 857
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +160,7 @@ TextureImporter:
         width: 857
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,48 @@ TextureImporter:
       bones: []
       spriteID: ed3ebaf61cb973540a7052cab755a342
       internalID: 1390283332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game_Button_Elements_3
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1167
+        width: 857
+        height: 867
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f7b38cfb30eda4b996ac86712399a8
+      internalID: 1689289113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game_Button_Elements_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 182
+        width: 857
+        height: 867
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c852d90c2ec195f4cb9dd06b34b8cc3d
+      internalID: -129373487
       vertices: []
       indices: 
       edges: []
@@ -186,6 +228,8 @@ TextureImporter:
       Game_Button_Elements_0: 151653920
       Game_Button_Elements_1: -1683164335
       Game_Button_Elements_2: 1390283332
+      Game_Button_Elements_3: 1689289113
+      Game_Button_Elements_4: -129373487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
