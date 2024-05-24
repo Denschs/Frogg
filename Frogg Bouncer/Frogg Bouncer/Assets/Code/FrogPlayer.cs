@@ -46,7 +46,7 @@ public class FrogPlayer : MonoBehaviour
     public AudioClip electroClip;
     public AudioClip iceClip;
     public AudioClip fireClip;
-    public AudioClip[] gulbClip;
+    public AudioClip gulbClip;
 
     void Start()
     {
@@ -248,8 +248,8 @@ public class FrogPlayer : MonoBehaviour
     }
     public void GettingHit()
     {
-        audioSource.clip = gulbClip[UnityEngine.Random.Range(0, gulbClip.Length)];
-        audioSource.Play();
+        //audioSource.clip = gulbClip; //[UnityEngine.Random.Range(0, gulbClip.Length)]
+        AudioSource.PlayClipAtPoint(gulbClip, Camera.main.transform.position);
         score++;
         CodeEventHandler.Trigger_GettingPoints(score);
     }
