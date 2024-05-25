@@ -48,6 +48,8 @@ public class FrogPlayer : MonoBehaviour
     public AudioClip fireClip;
     public AudioClip gulbClip;
 
+    [SerializeField] GameObject toungeTargetPoint;
+
     void Start()
     {
         attackZone = FindAnyObjectByType<AttackZone>();
@@ -123,8 +125,8 @@ public class FrogPlayer : MonoBehaviour
         {
             if (!cooldown)
             {
-                GameObject newproj = Instantiate(proj, transform.position, Quaternion.identity);
-                newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6 * charedvalue + 1);
+                GameObject newproj = Instantiate(proj, toungeTargetPoint.gameObject.transform.position, Quaternion.identity);
+                newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6.75f * charedvalue + 1);
                 charedvalue = (!reversed) ? 0 : charedvalueMaxSec;
                 audioSource.clip = tongueClip;
                 audioSource.Play();
