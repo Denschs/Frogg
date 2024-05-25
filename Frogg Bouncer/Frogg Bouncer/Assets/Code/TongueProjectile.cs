@@ -15,6 +15,10 @@ public class TongueProjectile : MonoBehaviour
     public AudioClip fairyGulbClip;
     public AudioClip butterflyGulbClip;
 
+    bool hitSomethingToEat = false;
+    EnemyType? typeOfEnemy = null;
+
+
     void Awake()
     {
         rigi = GetComponent<Rigidbody2D>();
@@ -54,31 +58,13 @@ public class TongueProjectile : MonoBehaviour
             }
             else if (!collision.CompareTag("Player"))
             {
+                hitSomethingToEat = true;
                 EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
 
                 if (enemyMovement != null)
                 {
-                    EnemyType typeOfEnemy = enemyMovement.GetEnemyType();
-
-                    switch (typeOfEnemy)
-                    {
-                        case EnemyType.FairyElectric:
-                            //AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
-                            CodeEventHandler.Trigger_ElectricDebufStarter();
-                            break;
-                        case EnemyType.FairyIce:
-                            AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
-                            CodeEventHandler.Trigger_IceDebuffStarter();
-                            break;
-                        case EnemyType.FairyFire:
-                            AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
-                            CodeEventHandler.Trigger_FireDebuffStarter();
-                            break;
-                        case EnemyType.Butterfly:
-                            AudioSource.PlayClipAtPoint(butterflyGulbClip, Camera.main.transform.position);
-                            CodeEventHandler.Trigger_GettingPointsRaw();
-                            break;
-                    }
+                    typeOfEnemy = enemyMovement.GetEnemyType();
+                    // EnemyTypeReaction(typeOfEnemy);
                 }
 
                 Destroy(collision.gameObject);
@@ -87,18 +73,42 @@ public class TongueProjectile : MonoBehaviour
                 rigi.gravityScale = 0.0f;
                 Push(oringP - transform.position, 5);
             }
-
             
         }
         else
         {        
             if (collision.CompareTag("Player"))
-            {         
-                CodeEventHandler.Trigger_ToungeIsBack();
+            {
+                EnemyTypeReaction(typeOfEnemy);
+                CodeEventHandler.Trigger_ToungeIsBack(hitSomethingToEat); 
                 Destroy(gameObject);
             }
         }
     }
 
-
+    private void EnemyTypeReaction(EnemyType? typeOfEnemy)
+    {
+        if(typeOfEnemy != null)
+        {
+            switch (typeOfEnemy)
+            {
+            case EnemyType.FairyElectric:
+                //AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
+                CodeEventHandler.Trigger_ElectricDebufStarter();
+                break;
+            case EnemyType.FairyIce:
+                AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
+                CodeEventHandler.Trigger_IceDebuffStarter();
+                break;
+            case EnemyType.FairyFire:
+                AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
+                CodeEventHandler.Trigger_FireDebuffStarter();
+                break;
+            case EnemyType.Butterfly:
+                AudioSource.PlayClipAtPoint(butterflyGulbClip, Camera.main.transform.position);
+                CodeEventHandler.Trigger_GettingPointsRaw();
+                break;
+            }
+        }
+    }
 }

@@ -942,7 +942,7 @@ MonoBehaviour:
   - {fileID: 799972206}
   minSpawnInterval: 1
   maxSpawnInterval: 2.5
-  noAcclearationEnemey: 0
+  noAcclearationEnemey: 1
 --- !u!4 &285281312
 Transform:
   m_ObjectHideFlags: 0
@@ -7155,7 +7155,7 @@ MonoBehaviour:
   hp: 3
   score: 0
   proj: {fileID: 4107059001002464282, guid: 6080c98edbe2f4f4595bea8e9c815231, type: 3}
-  reversed: 0
+  reversed: 1
   charedvalue: 0
   charedvalueMaxSec: 2
   spriteRendererIndiactor: {fileID: 1538494495}

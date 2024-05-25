@@ -38,8 +38,6 @@ public class FrogPlayer : MonoBehaviour
     DeathZone deathZone;
     TargetAimGraphic trgetAimGraphic;
 
-    [SerializeField] TextMeshProUGUI textMeshProUGUI; // Just for PlaceHolder Feedback
-
     private AudioSource audioSource;
     public AudioClip tongueClip;
     public AudioClip butterflyPassClip;
@@ -49,6 +47,7 @@ public class FrogPlayer : MonoBehaviour
     public AudioClip gulbClip;
 
     [SerializeField] GameObject toungeTargetPoint;
+    Animator animator;
 
     void Start()
     {
@@ -71,6 +70,8 @@ public class FrogPlayer : MonoBehaviour
         trgetAimGraphic?.SetCharedMax(charedvalueMaxSec,reversed);
 
         charedvalue = ((!reversed) ? 0 : charedvalueMaxSec);
+
+        animator = GetComponentInChildren<Animator>();
 
     }
     private void Update()
@@ -119,12 +120,12 @@ public class FrogPlayer : MonoBehaviour
             pressed = true;
             trgetAimGraphic?.TongueCharging();
 
-
         }
         else if (context.canceled && canShootTongue)
         {
             if (!cooldown)
             {
+                animator.SetTrigger("Attack");
                 GameObject newproj = Instantiate(proj, toungeTargetPoint.gameObject.transform.position, Quaternion.identity);
                 newproj.GetComponent<TongueProjectile>().Push(new Vector2(1, 0), 6.75f * charedvalue + 1);
                 charedvalue = (!reversed) ? 0 : charedvalueMaxSec;
@@ -138,8 +139,22 @@ public class FrogPlayer : MonoBehaviour
 
         }
     }
-    void CoolDownEnd()
+    void CoolDownEnd(bool gotSomethingToEat)
     {
+        if (canShootTongue)
+        {
+            print("CoolDownEnd");
+            if (gotSomethingToEat)
+            {
+                animator.SetTrigger("Eat");
+            }
+            else
+            {
+                print("Just Idle");
+                animator.SetTrigger("Idle");
+            }
+            
+        }
         cooldown = false;
     }
 
@@ -166,16 +181,19 @@ public class FrogPlayer : MonoBehaviour
 
     public void ElectricDebuffStarter()
     {
+        animator.SetBool("Zap",true);
         StartCoroutine(ElectricDebuff());
     }
 
     public void IceDebuffStarter()
     {
+        animator.SetBool("Ice", true);
         StartCoroutine(IceDebuff());
     }
 
     public void FireDebuffStarter()
     {
+        animator.SetBool("Fire", true);
         StartCoroutine(FireDebuff());
     }
 
@@ -184,29 +202,21 @@ public class FrogPlayer : MonoBehaviour
         print("Electric debuff applied");
         audioSource.clip = electroClip;
         audioSource.Play();
-        textMeshProUGUI.text = "Thats Shocking";
-        textMeshProUGUI.color = Color.yellow;
         canShootTongue = false;
         yield return new WaitForSeconds(electricDebuffTime);
-        canShootTongue = true; 
-        print("Electric debuff removed");
-
-        textMeshProUGUI.text = "";
+        canShootTongue = true;
+        animator.SetBool("Zap", false);
     }
 
     public IEnumerator IceDebuff()
     {
         print("Ice debuff applied");
         audioSource.clip = iceClip;
-        audioSource.Play();
-        textMeshProUGUI.text = "Cold feet";
-        textMeshProUGUI.color = Color.blue;
+        audioSource.Play();     
         isIce = true;
         yield return new WaitForSeconds(iceDebuffTime);
         isIce = false;
-        print("Ice debuff removed");
-
-        textMeshProUGUI.text = "";
+        animator.SetBool("Ice", false);
     }
 
     public IEnumerator FireDebuff()
@@ -214,14 +224,10 @@ public class FrogPlayer : MonoBehaviour
         print("Fire debuff applied");
         audioSource.clip = fireClip;
         audioSource.Play();
-        textMeshProUGUI.text = "This Frog is on Fire";
-        textMeshProUGUI.color = Color.red;
         isFire = true;
         yield return new WaitForSeconds(fireDebuffTime);
         isFire = false; 
-        print("Fire debuff removed");
-
-        textMeshProUGUI.text = "";
+        animator.SetBool("Fire", false);
     }
 
 
@@ -260,8 +266,10 @@ public class FrogPlayer : MonoBehaviour
     private void OnDisable()
     {
         CodeEventHandler.LosingLife -= LoseLife;
+        CodeEventHandler.GettingPointsRaw -= GettingHit;
         CodeEventHandler.ElectricDebufStarter -= ElectricDebuffStarter;
         CodeEventHandler.IceDebuffStarter -= IceDebuffStarter;
         CodeEventHandler.FireDebuffStarter -= FireDebuffStarter;
+        CodeEventHandler.ToungeIsBack -= CoolDownEnd;
     }
 }
