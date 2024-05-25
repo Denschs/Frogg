@@ -719,16 +719,16 @@ MonoBehaviour:
   enemies:
   - Name: Schmetterling
     Prefab: {fileID: 5385293560912809957, guid: 5041f0cecccbd5840bfb7541b5cb2a54, type: 3}
-    Chance: 61
+    Chance: 85
   - Name: FairyElectric
-    Prefab: {fileID: 8755940852193814774, guid: f41a2b6dc81870a4387d9036c68ba734, type: 3}
-    Chance: 13
+    Prefab: {fileID: 5385293560912809957, guid: 0112d8b328ee8704dae0b0cacd3f5b1b, type: 3}
+    Chance: 5
   - Name: FairyIce
-    Prefab: {fileID: 8755940852193814774, guid: 5f355ff8a18a72547af23526fe9b38e6, type: 3}
-    Chance: 13
+    Prefab: {fileID: 5385293560912809957, guid: 1c70aae3e36855a4dbe9cf3fc07c886d, type: 3}
+    Chance: 5
   - Name: FairyFire
-    Prefab: {fileID: 8755940852193814774, guid: e44d8a71e7dffc64db057775c3649b47, type: 3}
-    Chance: 13
+    Prefab: {fileID: 5385293560912809957, guid: a463218977be4814fb912e1fa4cdf437, type: 3}
+    Chance: 5
   spawnPoints:
   - {fileID: 799972206}
   minSpawnInterval: 1
