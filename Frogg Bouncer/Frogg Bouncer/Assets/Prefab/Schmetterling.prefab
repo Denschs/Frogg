@@ -453,8 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  accelerationValue: 0.65
-  speed: 4.25
+  accelerationValue: 1.5
+  speed: 5.25
 --- !u!50 &7475979685217858009
 Rigidbody2D:
   serializedVersion: 4
