@@ -14,7 +14,7 @@ public class TimeCounter : MonoBehaviour
         // Display elapsed time using TextMeshPro
         if (timeText != null)
         {
-            timeText.text = "Time: " + elapsedTime.ToString("F0");
+            timeText.text = elapsedTime.ToString("F0");
         }
     }
 }
