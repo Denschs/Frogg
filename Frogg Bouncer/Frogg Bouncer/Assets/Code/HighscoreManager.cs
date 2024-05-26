@@ -16,10 +16,11 @@ public class HighscoreManager : MonoBehaviour
 
     void Start()
     {
+        CodeEventHandler.GameEnded += SaveHighscores;
         // Beim Starten des Spiels die Highscores aus den PlayerPrefs laden
         LoadHighscores();
         // Aktualisiere die angezeigten Highscores
-        UpdateHighscoreDisplay();
+        UpdateHighscoreDisplay();  
     }
 
     public void SaveHighscores(int fairiesGuestsScore, int butterfliesFedScore)
@@ -57,5 +58,9 @@ public class HighscoreManager : MonoBehaviour
         fairiesHighscoreText.text = "Guests: " + highscoreFairiesGuests.ToString();
         // Aktualisiere den Text des TextMeshPro-Objekts für Butterflies mit dem entsprechenden Highscore
         butterfliesHighscoreText.text = "Fooded: " + highscoreButterfliesFed.ToString();
+    }
+    private void OnDisable()
+    {
+        CodeEventHandler.GameEnded -= SaveHighscores;
     }
 }

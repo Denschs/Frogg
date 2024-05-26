@@ -250,7 +250,8 @@ public class FrogPlayer : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
-            highscoreManager.SaveHighscores(score, deathZone.fairiescounter);
+            Time.timeScale = 0;
+            CodeEventHandler.Trigger_GameEnded(score, deathZone.fairiescounter);
             endScreen.SetActive(true);
         }
     }
