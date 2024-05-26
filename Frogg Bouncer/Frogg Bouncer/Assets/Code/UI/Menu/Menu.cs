@@ -28,7 +28,21 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Main");
         //mainMenu.SetActive(false);
     }
-    
+    public void playGameReverseScene()
+    {
+        src.PlayOneShot(srcOne);
+        StartCoroutine(_playGameReverseScene());
+
+        //introCanvas.SetActive(true);
+        //SceneManager.LoadScene("Main");
+    }
+    private IEnumerator _playGameReverseScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Main_ReverseTarget");
+        //mainMenu.SetActive(false);
+    }
+
     public void showCredits()
     {
         mainMenu.SetActive(false);

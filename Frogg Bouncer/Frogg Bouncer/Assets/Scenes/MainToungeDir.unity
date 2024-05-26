@@ -2812,14 +2812,13 @@ MonoBehaviour:
   fireDebuffTime: 4
   iceDebuffValue: 5
   fireDebuffValue: 5
-  textMeshProUGUI: {fileID: 514183423}
   tongueClip: {fileID: 8300000, guid: 44def45d72871394db01264eeb70e146, type: 3}
   butterflyPassClip: {fileID: 8300000, guid: c8ae46a218278c94e9b6e59b54fe7222, type: 3}
   electroClip: {fileID: 8300000, guid: a435369ff9691d546b8962d5ed5a7428, type: 3}
   iceClip: {fileID: 8300000, guid: 54b6ba4c0aa451542bd86e9bcc04ca93, type: 3}
   fireClip: {fileID: 8300000, guid: 6c65cfbc57eff0043854f3fcd0b71089, type: 3}
-  gulbClip:
-  - {fileID: 8300000, guid: 3d226633169cbe14e8a2dfd0e14f20c1, type: 3}
+  gulbClip: {fileID: 0}
+  toungeTargetPoint: {fileID: 0}
 --- !u!61 &796714278
 BoxCollider2D:
   m_ObjectHideFlags: 0

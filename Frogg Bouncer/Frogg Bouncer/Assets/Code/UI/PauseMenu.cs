@@ -13,31 +13,37 @@ public class PauseMenu : MonoBehaviour
     private InputAction pauseGame;
     public Canvas pauseCanvas;
     private bool gameIsPaused = false;
+    bool deactivate = false;
 
     void Awake()
     {
         //pauseGame = _inputActions.actions["Menu"];
         //pauseGame.performed += _ => ResumePause();
+        CodeEventHandler.GameEnded += GameEnded;
 
     }
 
     public void ResumePause()
     {
-        if (!gameIsPaused && pauseCanvas != null)
+        if (!deactivate)
         {
-            Time.timeScale = 0f;
-            gameIsPaused = true;
-            pauseCanvas.gameObject.SetActive(true);
-            Debug.Log("Spiel Pause");
-        }
+            if (!gameIsPaused && pauseCanvas != null)
+            {
+                Time.timeScale = 0f;
+                gameIsPaused = true;
+                pauseCanvas.gameObject.SetActive(true);
+                Debug.Log("Spiel Pause");
+            }
 
-        else if (gameIsPaused && pauseCanvas != null)
-        {
-            Time.timeScale = 1f;
-            gameIsPaused = false;
-            pauseCanvas.gameObject.SetActive(false);
-            Debug.Log("Spiel Resume");
+            else if (gameIsPaused && pauseCanvas != null)
+            {
+                Time.timeScale = 1f;
+                gameIsPaused = false;
+                pauseCanvas.gameObject.SetActive(false);
+                Debug.Log("Spiel Resume");
+            }
         }
+       
     }
     public void MainMenu()
     {
@@ -46,20 +52,19 @@ public class PauseMenu : MonoBehaviour
        
         Debug.Log("Spiel Reset");
     }
+    public void GameEnded(int x, int y)
+    {
+        deactivate = true; // Sonst kamm nach den Tod wieder "entpausen"
+    }
     public void QuitGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //Application.Quit();
     }
-    /*
-    private void OnEnable()
-    {
-        pauseGame.Enable();
-    }
-
+    
     private void OnDisable()
     {
-        pauseGame.Disable();
+        CodeEventHandler.GameEnded -= GameEnded;
     }
-    */
+    
 }

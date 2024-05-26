@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7315655874908082127}
   - component: {fileID: 7892461959678855251}
+  - component: {fileID: 6885582278963060296}
   m_Layer: 3
   m_Name: Wing
   m_TagString: Untagged
@@ -169,6 +170,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6885582278963060296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537808080078242694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824d583caaf48d14bb121844f9e578e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wingsdesign:
+  - {fileID: 21300000, guid: 24eba304085932344b5fe03edf68148d, type: 3}
+  - {fileID: 21300000, guid: 92812a0c7584d214b996263a8c85b11e, type: 3}
+  - {fileID: 21300000, guid: 3105911ab8efcf944ac8444fb7ca64c6, type: 3}
+  - {fileID: 21300000, guid: 0eaa54ffb50843c4792549fdc37f892b, type: 3}
+  - {fileID: 21300000, guid: 9a1a20d1268aa1c4e99224b970c4ecd6, type: 3}
+  - {fileID: 21300000, guid: 093335b2ef6f7d7478c37dfd9f307db3, type: 3}
 --- !u!1 &4069724773960763226
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,8 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  accelerationValue: 0.65
-  speed: 4.25
+  accelerationValue: 1.5
+  speed: 5.25
 --- !u!50 &7475979685217858009
 Rigidbody2D:
   serializedVersion: 4

@@ -26,6 +26,9 @@ public class CodeEventHandler : MonoBehaviour
     public static event Action FireDebuffStarter;
     public static void Trigger_FireDebuffStarter() { FireDebuffStarter.Invoke(); }
 
-    public static event Action ToungeIsBack;
-    public static void Trigger_ToungeIsBack() { ToungeIsBack.Invoke(); }
+    public static event Action<bool> ToungeIsBack;
+    public static void Trigger_ToungeIsBack(bool somethingToEat) { ToungeIsBack.Invoke(somethingToEat); }
+
+    public static event Action<int,int> GameEnded;
+    public static void Trigger_GameEnded(int fairiesGuestsScore, int butterfliesFedScore) { GameEnded.Invoke(fairiesGuestsScore, butterfliesFedScore); }
 }
