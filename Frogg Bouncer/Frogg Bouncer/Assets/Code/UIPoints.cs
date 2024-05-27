@@ -25,13 +25,14 @@ public class UIPoints : MonoBehaviour
 
     private void UpdateScore(int i)
     {
-        foodedText.text = "Fooded: " + i;
-        foodedPanelText.text = "Fooded: " + i;
+        foodedText.text =  i.ToString();
+        foodedPanelText.text = i.ToString();
+            ;
     }
 
     private void UpdateFairiesCounter(int newCounter)
     {
-        fairiesText.text = "Guests: " + newCounter;
-        fairiesPanelText.text = "Guests: " + newCounter;
+        fairiesText.text =newCounter.ToString();
+        fairiesPanelText.text =newCounter.ToString();
     }
 }

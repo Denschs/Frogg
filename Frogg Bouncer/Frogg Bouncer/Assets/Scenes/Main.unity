@@ -2742,11 +2742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 855540425409246317, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
       propertyPath: m_text
-      value: 99
+      value: 00
       objectReference: {fileID: 0}
     - target: {fileID: 855540425409246317, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
       propertyPath: m_fontSize
-      value: 62.9
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 855540425409246317, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
       propertyPath: m_fontAsset
@@ -3846,11 +3846,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8412672094931775613, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
       propertyPath: m_text
-      value: 99
+      value: 00
       objectReference: {fileID: 0}
     - target: {fileID: 8412672094931775613, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
       propertyPath: m_fontSize
-      value: 57.6
+      value: 69.9
       objectReference: {fileID: 0}
     - target: {fileID: 8412672094931775613, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
       propertyPath: m_fontAsset
@@ -8273,9 +8273,9 @@ MonoBehaviour:
   spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
   electricDebuffTime: 2
-  iceDebuffTime: 4
-  fireDebuffTime: 4
-  iceDebuffValue: 5
+  iceDebuffTime: 3
+  fireDebuffTime: 3
+  iceDebuffValue: 3.5
   fireDebuffValue: 5
   tongueClip: {fileID: 8300000, guid: 44def45d72871394db01264eeb70e146, type: 3}
   butterflyPassClip: {fileID: 8300000, guid: f9497f8fa177d144b9255eeffa3f4013, type: 3}

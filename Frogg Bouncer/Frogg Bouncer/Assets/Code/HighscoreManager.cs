@@ -55,9 +55,9 @@ public class HighscoreManager : MonoBehaviour
     public void UpdateHighscoreDisplay()
     {
         // Aktualisiere den Text des TextMeshPro-Objekts für Fairies mit dem entsprechenden Highscore
-        fairiesHighscoreText.text = "Guests: " + highscoreFairiesGuests.ToString();
+        fairiesHighscoreText.text = highscoreFairiesGuests.ToString();
         // Aktualisiere den Text des TextMeshPro-Objekts für Butterflies mit dem entsprechenden Highscore
-        butterfliesHighscoreText.text = "Fooded: " + highscoreButterfliesFed.ToString();
+        butterfliesHighscoreText.text = highscoreButterfliesFed.ToString();
     }
     private void OnDisable()
     {
