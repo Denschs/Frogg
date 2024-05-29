@@ -266,6 +266,7 @@ public class FrogPlayer : MonoBehaviour
     
     private void OnDisable()
     {
+        Time.timeScale = 1;
         CodeEventHandler.LosingLife -= LoseLife;
         CodeEventHandler.GettingPointsRaw -= GettingHit;
         CodeEventHandler.ElectricDebufStarter -= ElectricDebuffStarter;
