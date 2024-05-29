@@ -37,6 +37,17 @@
                     "action": "Tounge",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06b41da9-11d0-4a08-aae8-c26764d7f4c1",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tounge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
