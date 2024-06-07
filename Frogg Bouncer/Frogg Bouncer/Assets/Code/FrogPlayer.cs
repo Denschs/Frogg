@@ -22,6 +22,7 @@ public class FrogPlayer : MonoBehaviour
 
     [SerializeField] SpriteRenderer spriteRendererIndiactor;
     [SerializeField] GameObject endScreen;
+    [SerializeField] GameObject scoreCanvas;
 
     public float electricDebuffTime;
     public float electricduration = 0.5f;
@@ -264,12 +265,14 @@ public class FrogPlayer : MonoBehaviour
             Time.timeScale = 0;
             CodeEventHandler.Trigger_GameEnded(score, deathZone.fairiescounter);
             endScreen.SetActive(true);
+            scoreCanvas.SetActive(false);
         }
     }
     public void GettingHit()
     {
-        //audioSource.clip = gulbClip; //[UnityEngine.Random.Range(0, gulbClip.Length)]
-        AudioSource.PlayClipAtPoint(gulbClip, Camera.main.transform.position);
+        
+        audioSource.clip = gulbClip; //[UnityEngine.Random.Range(0, gulbClip.Length)]
+        audioSource.Play();
         score++;
         CodeEventHandler.Trigger_GettingPoints(score);
     }

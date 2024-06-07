@@ -12,6 +12,7 @@ public class TongueProjectile : MonoBehaviour
     Vector3 oringP;
     FrogPlayer frogPlayer;
 
+    public AudioSource audioSource;
     public AudioClip fairyGulbClip;
     public AudioClip butterflyGulbClip;
 
@@ -25,6 +26,7 @@ public class TongueProjectile : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         trailRenderer = GetComponent<TrailRenderer>();
         frogPlayer = FindObjectOfType<FrogPlayer>();
+        audioSource = FindObjectOfType<AudioSource>();
 
         rigi.gravityScale = Mathf.Pow(extraSpeedFactor, 2);
     }
@@ -97,16 +99,19 @@ public class TongueProjectile : MonoBehaviour
                 CodeEventHandler.Trigger_ElectricDebufStarter();
                 break;
             case EnemyType.FairyIce:
-                AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
+                    audioSource.clip = fairyGulbClip;
+                    audioSource.Play();
                 CodeEventHandler.Trigger_IceDebuffStarter();
                 break;
             case EnemyType.FairyFire:
-                AudioSource.PlayClipAtPoint(fairyGulbClip, Camera.main.transform.position);
-                CodeEventHandler.Trigger_FireDebuffStarter();
+                    audioSource.clip = fairyGulbClip;
+                    audioSource.Play();
+                    CodeEventHandler.Trigger_FireDebuffStarter();
                 break;
             case EnemyType.Butterfly:
-                AudioSource.PlayClipAtPoint(butterflyGulbClip, Camera.main.transform.position);
-                CodeEventHandler.Trigger_GettingPointsRaw();
+                    audioSource.clip = butterflyGulbClip;
+                    audioSource.Play();
+                    CodeEventHandler.Trigger_GettingPointsRaw();
                 break;
             }
         }
