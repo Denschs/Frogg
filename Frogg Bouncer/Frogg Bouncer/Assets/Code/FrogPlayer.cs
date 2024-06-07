@@ -23,14 +23,22 @@ public class FrogPlayer : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRendererIndiactor;
     [SerializeField] GameObject endScreen;
 
-    private bool canShootTongue = true; 
     public float electricDebuffTime;
+    public float electricduration = 0.5f;
+    public float electricstrength = 0.5f;
+
     public float iceDebuffTime;
+    public float iceduration = 0.5f;
+    public float icestrength = 0.5f;
+
     public float fireDebuffTime;
+    public float fireduration = 0.5f;
+    public float firestrength = 0.5f;
 
     public float iceDebuffValue;
     public float fireDebuffValue;
 
+    private bool canShootTongue = true; 
     bool isIce;
     bool isFire;
 
@@ -199,6 +207,7 @@ public class FrogPlayer : MonoBehaviour
 
     public IEnumerator ElectricDebuff()
     {
+        CameraShake.Shake(electricduration, electricstrength);
         print("Electric debuff applied");
         audioSource.clip = electroClip;
         audioSource.Play();
@@ -210,6 +219,7 @@ public class FrogPlayer : MonoBehaviour
 
     public IEnumerator IceDebuff()
     {
+        CameraShake.Shake(iceduration, icestrength);
         print("Ice debuff applied");
         audioSource.clip = iceClip;
         audioSource.Play();     
@@ -221,6 +231,7 @@ public class FrogPlayer : MonoBehaviour
 
     public IEnumerator FireDebuff()
     {
+        CameraShake.Shake(fireduration, firestrength);
         print("Fire debuff applied");
         audioSource.clip = fireClip;
         audioSource.Play();

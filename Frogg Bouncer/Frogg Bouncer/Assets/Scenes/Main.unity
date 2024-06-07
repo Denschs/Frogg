@@ -4400,8 +4400,14 @@ MonoBehaviour:
   spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
   electricDebuffTime: 2
+  electricduration: 0.5
+  electricstrength: 0.5
   iceDebuffTime: 4
+  iceduration: 0.5
+  icestrength: 0.5
   fireDebuffTime: 4
+  fireduration: 0.5
+  firestrength: 0.5
   iceDebuffValue: 5
   fireDebuffValue: 5
   tongueClip: {fileID: 8300000, guid: 44def45d72871394db01264eeb70e146, type: 3}
@@ -5355,6 +5361,7 @@ GameObject:
   - component: {fileID: 988971592}
   - component: {fileID: 988971591}
   - component: {fileID: 988971594}
+  - component: {fileID: 988971595}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5480,6 +5487,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &988971595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988971590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0896fea72947d34ab8e27eeba20e724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &990589828
 GameObject:
   m_ObjectHideFlags: 0
@@ -8273,8 +8292,14 @@ MonoBehaviour:
   spriteRendererIndiactor: {fileID: 1538494495}
   endScreen: {fileID: 1822439759}
   electricDebuffTime: 2
+  electricduration: 0.5
+  electricstrength: 0.5
   iceDebuffTime: 3
+  iceduration: 0.5
+  icestrength: 0.5
   fireDebuffTime: 3
+  fireduration: 0.5
+  firestrength: 0.5
   iceDebuffValue: 3.5
   fireDebuffValue: 5
   tongueClip: {fileID: 8300000, guid: 44def45d72871394db01264eeb70e146, type: 3}
