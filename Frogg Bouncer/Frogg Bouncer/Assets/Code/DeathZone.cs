@@ -11,8 +11,13 @@ public class DeathZone : MonoBehaviour
     private void Start()
     {
         player = FindAnyObjectByType<FrogPlayer>(); // Maybe Change later to c# Event 
+        CodeEventHandler.GameEnded += DestroyDeathzone;
     }
 
+    void DestroyDeathzone(int fairiesGuestsScore, int butterfliesFedScore)
+    {
+        Destroy(this);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the colliding object has the tag "Schmetterling"

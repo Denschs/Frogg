@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using TMPro;
+using DG.Tweening;
 
 
 public class FrogPlayer : MonoBehaviour
@@ -58,6 +59,9 @@ public class FrogPlayer : MonoBehaviour
     [SerializeField] GameObject toungeTargetPoint;
     Animator animator;
 
+    private CanvasGroup endScreenCanvasGroup;
+    private CanvasGroup scoreCanvasGroup;
+
     void Start()
     {
         attackZone = FindAnyObjectByType<AttackZone>();
@@ -74,30 +78,39 @@ public class FrogPlayer : MonoBehaviour
         CodeEventHandler.ToungeIsBack += CoolDownEnd;
 
         audioSource = GetComponentInChildren<AudioSource>();
-
+        animator = GetComponentInChildren<Animator>();
         trgetAimGraphic = FindAnyObjectByType<TargetAimGraphic>();
         trgetAimGraphic?.SetCharedMax(charedvalueMaxSec,reversed);
 
         charedvalue = ((!reversed) ? 0 : charedvalueMaxSec);
 
-        animator = GetComponentInChildren<Animator>();
+        endScreenCanvasGroup = endScreen.GetComponent<CanvasGroup>();
+        if (endScreenCanvasGroup == null)
+        {
+            endScreenCanvasGroup = endScreen.AddComponent<CanvasGroup>();
+        }
 
+        scoreCanvasGroup = scoreCanvas.GetComponent<CanvasGroup>();
+        if (scoreCanvasGroup == null)
+        {
+            scoreCanvasGroup = scoreCanvas.AddComponent<CanvasGroup>();
+        }
     }
     private void Update()
     {
         if (pressed)
         {
-            if(isIce)
+            if (isIce)
             {
                 charedvalue += Time.deltaTime / iceDebuffValue * ((!reversed) ? 1 : -1);
             }
-            else if(isFire)
+            else if (isFire)
             {
-                charedvalue += Time.deltaTime * fireDebuffValue * ((!reversed) ? 1 : -1); 
+                charedvalue += Time.deltaTime * fireDebuffValue * ((!reversed) ? 1 : -1);
             }
             else
             {
-                charedvalue += Time.deltaTime * ((!reversed) ? 1 : -1); 
+                charedvalue += Time.deltaTime * ((!reversed) ? 1 : -1);
             }
 
             if (charedvalue <= charedvalueMaxSec / 2) //can propaly done easeyer
@@ -118,8 +131,12 @@ public class FrogPlayer : MonoBehaviour
             trgetAimGraphic?.SetTargetPostion(charedvalue);
 
         }
-    }
 
+        if (hp <= 0)
+        {
+            charedvalue = 0;
+        }
+    }
 
     public void Holding(InputAction.CallbackContext context)
     {
@@ -262,10 +279,15 @@ public class FrogPlayer : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
-            Time.timeScale = 0;
             CodeEventHandler.Trigger_GameEnded(score, deathZone.fairiescounter);
             endScreen.SetActive(true);
-            scoreCanvas.SetActive(false);
+            endScreenCanvasGroup.DOFade(1f, 1f).From(0f).SetEase(Ease.InOutQuad);
+            scoreCanvasGroup.DOFade(0f, 1f).OnComplete(() =>
+            {
+                scoreCanvas.SetActive(false); // Deaktivieren nach dem Fade-Out
+                //Time.timeScale = 0;
+            });
+
         }
     }
     public void GettingHit()

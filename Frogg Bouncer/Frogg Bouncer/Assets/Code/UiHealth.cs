@@ -6,10 +6,10 @@ using DG.Tweening;
 
 public class UiHealth : MonoBehaviour
 {
-    List<Transform> gameObjects;
+    List<RectTransform> gameObjects;
     void Start()
     {
-        gameObjects = transform.GetComponentsInChildren<Transform>().ToList();
+        gameObjects = transform.GetComponentsInChildren<RectTransform>().ToList();
         CodeEventHandler.LosingLife += LoseHealtUi;      
     }
 
@@ -19,12 +19,15 @@ public class UiHealth : MonoBehaviour
     }
     public void LoseHealtUi()
     {
-        if(gameObjects.Count != 0)
+        if (gameObjects.Count != 0)
         {
-           
-            gameObjects[gameObjects.Count - 1].gameObject.SetActive(false);
-            //DOTweenModuleUI.DOAnchorPosY(gameObjects[gameObjects.Count - 1].gameObjec.transform, 5, 1f,true);
-            gameObjects.RemoveAt(gameObjects.Count - 1);
+            RectTransform lastElement = gameObjects[gameObjects.Count - 1];
+
+            // Animate the last element downwards
+            lastElement.DOAnchorPosY(lastElement.anchoredPosition.y - 200f, 1f).SetEase(Ease.InOutQuad)
+                .OnComplete(() => {
+                    gameObjects.Remove(lastElement); // Entfernen des Elements aus der Liste nach der Animation
+                });
         }
     }
 }
