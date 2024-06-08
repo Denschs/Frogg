@@ -98,7 +98,7 @@ public class FrogPlayer : MonoBehaviour
     }
     private void Update()
     {
-        if (pressed)
+        if (pressed & canShootTongue)
         {
             if (isIce)
             {
