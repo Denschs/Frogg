@@ -1544,6 +1544,53 @@ Transform:
   - {fileID: 237230192}
   m_Father: {fileID: 886234805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &336244879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 336244880}
+  - component: {fileID: 336244881}
+  m_Layer: 6
+  m_Name: ParticelEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &336244880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336244879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1768115782}
+  m_Father: {fileID: 1923166140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336244881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336244879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1f56c842c307d4ab69549ab4952d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems:
+  - {fileID: 1768115784}
 --- !u!1 &337611100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,6 +5238,7 @@ MonoBehaviour:
   fireClip: {fileID: 8300000, guid: 6c65cfbc57eff0043854f3fcd0b71089, type: 3}
   gulbClip: {fileID: 8300000, guid: 3d226633169cbe14e8a2dfd0e14f20c1, type: 3}
   toungeTargetPoint: {fileID: 0}
+  particleEffectManager: {fileID: 0}
 --- !u!61 &796714278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10115,11 +10163,11 @@ Transform:
   m_GameObject: {fileID: 1768115781}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.2935077, y: -0.915465, z: -11.576518}
-  m_LocalScale: {x: 0.59541434, y: 0.6708894, z: 0.6708894}
+  m_LocalPosition: {x: 0.2935077, y: -0.915465, z: -11.576516}
+  m_LocalScale: {x: 0.59541434, y: 0.6708893, z: 0.6708893}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1923166140}
+  m_Father: {fileID: 336244880}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &1768115783
 ParticleSystemRenderer:
@@ -10210,7 +10258,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -15467,6 +15515,7 @@ MonoBehaviour:
   fireClip: {fileID: 8300000, guid: 6c65cfbc57eff0043854f3fcd0b71089, type: 3}
   gulbClip: {fileID: 8300000, guid: 3d226633169cbe14e8a2dfd0e14f20c1, type: 3}
   toungeTargetPoint: {fileID: 221013239}
+  particleEffectManager: {fileID: 336244881}
 --- !u!114 &1923166139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15530,7 +15579,7 @@ Transform:
   - {fileID: 2123031720}
   - {fileID: 1551186685}
   - {fileID: 221013240}
-  - {fileID: 1768115782}
+  - {fileID: 336244880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1923305027

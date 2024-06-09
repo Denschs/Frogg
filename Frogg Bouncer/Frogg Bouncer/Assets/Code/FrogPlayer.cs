@@ -58,6 +58,7 @@ public class FrogPlayer : MonoBehaviour
 
     [SerializeField] GameObject toungeTargetPoint;
     Animator animator;
+    [SerializeField] ParticleEffectManager particleEffectManager;
 
     private CanvasGroup endScreenCanvasGroup;
     private CanvasGroup scoreCanvasGroup;
@@ -254,7 +255,9 @@ public class FrogPlayer : MonoBehaviour
         audioSource.clip = fireClip;
         audioSource.Play();
         isFire = true;
+        particleEffectManager.ActivateParticleSystem(0);
         yield return new WaitForSeconds(fireDebuffTime);
+        particleEffectManager.DeactivateParticleSystem(0);
         isFire = false; 
         animator.SetBool("Fire", false);
     }
