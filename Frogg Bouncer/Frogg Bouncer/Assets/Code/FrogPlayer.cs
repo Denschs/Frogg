@@ -60,8 +60,9 @@ public class FrogPlayer : MonoBehaviour
     Animator animator;
     [SerializeField] ParticleEffectManager particleEffectManager;
 
-    private CanvasGroup endScreenCanvasGroup;
-    private CanvasGroup scoreCanvasGroup;
+    private RectTransform endScreenCanvasGroup;
+    [SerializeField] private RectTransform fairyScoreCanvas;
+    [SerializeField] private RectTransform butterflyScoreCanvas;
 
     void Start()
     {
@@ -85,17 +86,14 @@ public class FrogPlayer : MonoBehaviour
 
         charedvalue = ((!reversed) ? 0 : charedvalueMaxSec);
 
-        endScreenCanvasGroup = endScreen.GetComponent<CanvasGroup>();
+        endScreenCanvasGroup = endScreen.GetComponent<RectTransform>();
         if (endScreenCanvasGroup == null)
         {
-            endScreenCanvasGroup = endScreen.AddComponent<CanvasGroup>();
+            endScreenCanvasGroup = endScreen.AddComponent<RectTransform>();
         }
 
-        scoreCanvasGroup = scoreCanvas.GetComponent<CanvasGroup>();
-        if (scoreCanvasGroup == null)
-        {
-            scoreCanvasGroup = scoreCanvas.AddComponent<CanvasGroup>();
-        }
+        //fairyScoreCanvas = scoreCanvas.GetComponent<RectTransform>();
+        //butterflyScoreCanvas = scoreCanvas.GetComponent<RectTransform>();
     }
     private void Update()
     {
@@ -284,13 +282,16 @@ public class FrogPlayer : MonoBehaviour
         {
             CodeEventHandler.Trigger_GameEnded(score, deathZone.fairiescounter);
             endScreen.SetActive(true);
-            endScreenCanvasGroup.DOFade(1f, 1f).From(0f).SetEase(Ease.InOutQuad);
-            scoreCanvasGroup.DOFade(0f, 1f).OnComplete(() =>
+            //endScreenCanvasGroup.DOFade(1f, 1f).From(0f).SetEase(Ease.InOutQuad);
+            endScreenCanvasGroup.DOAnchorPosY(-600f, 1.5f).SetEase(Ease.InOutQuad);
+
+            //scoreCanvasGroup.DOFade(0f, 1f).OnComplete(() =>
+            fairyScoreCanvas.DOAnchorPosY(100f, 1f).SetEase(Ease.InOutQuad);
+            butterflyScoreCanvas.DOAnchorPosY(100f, 1f).SetEase(Ease.InOutQuad).OnComplete(() =>
             {
                 scoreCanvas.SetActive(false); // Deaktivieren nach dem Fade-Out
                 //Time.timeScale = 0;
             });
-
         }
     }
     public void GettingHit()

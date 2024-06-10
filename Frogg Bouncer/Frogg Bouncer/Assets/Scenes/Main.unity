@@ -5243,6 +5243,8 @@ MonoBehaviour:
   gulbClip: {fileID: 8300000, guid: 3d226633169cbe14e8a2dfd0e14f20c1, type: 3}
   toungeTargetPoint: {fileID: 0}
   particleEffectManager: {fileID: 0}
+  fairyScoreCanvas: {fileID: 0}
+  butterflyScoreCanvas: {fileID: 0}
 --- !u!61 &796714278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7744,6 +7746,11 @@ CanvasRenderer:
 --- !u!1 &1226643709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7793314649790485981, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
+  m_PrefabInstance: {fileID: 768675918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1322792227 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9111537833209113777, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
   m_PrefabInstance: {fileID: 768675918}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340824595
@@ -15499,7 +15506,7 @@ MonoBehaviour:
   charedvalue: 0
   charedvalueMaxSec: 2
   spriteRendererIndiactor: {fileID: 1538494495}
-  endScreen: {fileID: 2130067823}
+  endScreen: {fileID: 2040217549}
   scoreCanvas: {fileID: 1226643709}
   electricDebuffTime: 2
   electricduration: 0.5
@@ -15520,6 +15527,8 @@ MonoBehaviour:
   gulbClip: {fileID: 8300000, guid: 3d226633169cbe14e8a2dfd0e14f20c1, type: 3}
   toungeTargetPoint: {fileID: 221013239}
   particleEffectManager: {fileID: 336244881}
+  fairyScoreCanvas: {fileID: 1322792227}
+  butterflyScoreCanvas: {fileID: 2125402497}
 --- !u!114 &1923166139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16478,7 +16487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2040217550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16496,7 +16505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -58, y: -552}
+  m_AnchoredPosition: {x: -58, y: 462}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040217551
@@ -17142,6 +17151,11 @@ Transform:
   - {fileID: 1506518747}
   m_Father: {fileID: 1923166140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &2125402497 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3261302576956330678, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
+  m_PrefabInstance: {fileID: 768675918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2125960511
 GameObject:
   m_ObjectHideFlags: 0
@@ -17193,7 +17207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2130067824
 RectTransform:
   m_ObjectHideFlags: 0
