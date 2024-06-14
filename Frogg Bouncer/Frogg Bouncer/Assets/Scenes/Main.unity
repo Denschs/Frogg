@@ -1584,6 +1584,9 @@ MonoBehaviour:
   minSpawnInterval: 1
   maxSpawnInterval: 2
   noAcclearationEnemey: 0
+  AcclearationMutiple: 0
+  AccleartionIncreaseStart: 0.1
+  AccleartionIncreasePostStart: 0.02
 --- !u!4 &285281312
 Transform:
   m_ObjectHideFlags: 0

@@ -207,18 +207,21 @@ public class FrogPlayer : MonoBehaviour
     public void ElectricDebuffStarter()
     {
         animator.SetBool("Zap",true);
+        FastTargetFadeOut();
         StartCoroutine(ElectricDebuff());
     }
 
     public void IceDebuffStarter()
     {
         animator.SetBool("Ice", true);
+        FastTargetFadeOut();
         StartCoroutine(IceDebuff());
     }
 
     public void FireDebuffStarter()
     {
         animator.SetBool("Fire", true);
+        FastTargetFadeOut();
         StartCoroutine(FireDebuff());
     }
 
@@ -296,14 +299,23 @@ public class FrogPlayer : MonoBehaviour
     }
     public void GettingHit()
     {
-        
+
         audioSource.clip = gulbClip; //[UnityEngine.Random.Range(0, gulbClip.Length)]
         audioSource.Play();
         score++;
         CodeEventHandler.Trigger_GettingPoints(score);
+        FastTargetFadeOut();
+
     }
 
-    
+    private void FastTargetFadeOut()
+    {
+        if (charedvalue <= 0)
+        {
+            StartCoroutine(trgetAimGraphic.FastFadeOut());
+        }
+    }
+
     private void OnDisable()
     {
         Time.timeScale = 1;
