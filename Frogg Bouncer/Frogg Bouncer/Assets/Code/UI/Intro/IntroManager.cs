@@ -47,7 +47,6 @@ public class IntroManager : MonoBehaviour
 
         if(introIndex >= Bilder.Length && nextScene == true)
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(Scenename);
             this.gameObject.SetActive(false);
             //this.gameObject.SetActive(false);
@@ -57,6 +56,7 @@ public class IntroManager : MonoBehaviour
         if(introIndex >= Bilder.Length && nextScene == false)
         {
             //Application.Quit();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             this.gameObject.SetActive(false);
             //GameManager.Instance.ToggleTimeRunning(true);
             Debug.Log("Intro Over");

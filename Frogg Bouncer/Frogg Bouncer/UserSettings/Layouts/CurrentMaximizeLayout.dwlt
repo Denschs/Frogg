@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 42691
+  controlID: 1195
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 42692
+  controlID: 1196
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 42693
+  controlID: 1197
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 408
     height: 644
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -236,9 +236,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 804cfeff5c4efeff3c4ffeff7850feff8067feffa4f9ffffaef9ffffb0f9ffffa87800003a79000058790000647900007679000084790000c67900002e7a00003a7a0000407a0000ba7a0000da7a0000067b0000167b00009e7b0000b47b0000
+      m_SelectedIDs: 24ccffff
+      m_LastClickedID: -13276
+      m_ExpandedIDs: 7ecdffff80cdffff72f8ffff68f9ffff18faffff32780000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1987,9 +1987,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.09732659, y: 1.3998427, z: -0.053336583}
+    m_Target: {x: 1143.5105, y: 1056.9869, z: 3.445687}
     speed: 2
-    m_Value: {x: -0.09732659, y: 1.3998427, z: -0.053336583}
+    m_Value: {x: 1143.5105, y: 1056.9869, z: 3.445687}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2039,9 +2039,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.67093
+    m_Target: 979.9178
     speed: 2
-    m_Value: 7.67093
+    m_Value: 979.9178
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -3479,7 +3479,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -3487,16 +3487,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Dev\Frog\Frogg\Frogg Bouncer\Frogg Bouncer
+  m_LastProjectPath: "G:\\Game Design\\HAW Master\\Game Production\\Fr\xF6g\\Frogg\\Frogg
+    Bouncer\\Frogg Bouncer"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: ea810000
-    m_LastClickedID: 33258
-    m_ExpandedIDs: 00000000c681000000ca9a3bffffff7f
+    m_SelectedIDs: ba7f0000
+    m_LastClickedID: 32698
+    m_ExpandedIDs: 00000000847f0000867f0000887f0000aa7f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3524,7 +3525,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c681000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000847f0000867f0000887f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3549,9 +3550,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 24ccffff
+    m_LastClickedInstanceID: -13276
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000686500008a6a0000be8d0000766a00007a6a000050acffffaa7700002ab400001eb40000ec7d0000b699000038f400003cf4000030f4000034f4000086820000667f000024a200007402000028bd0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -3650,7 +3651,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 31262
+  m_LastSelectedObjectID: 30770
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
