@@ -189,6 +189,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0eaa54ffb50843c4792549fdc37f892b, type: 3}
   - {fileID: 21300000, guid: 9a1a20d1268aa1c4e99224b970c4ecd6, type: 3}
   - {fileID: 21300000, guid: 093335b2ef6f7d7478c37dfd9f307db3, type: 3}
+  wingsColors:
+  - serializedVersion: 2
+    rgba: 4289160153
+  - serializedVersion: 2
+    rgba: 4283214845
+  - serializedVersion: 2
+    rgba: 4286810415
+  - serializedVersion: 2
+    rgba: 4285013833
+  - serializedVersion: 2
+    rgba: 4285409207
+  - serializedVersion: 2
+    rgba: 4282820906
+  - serializedVersion: 2
+    rgba: 4294967295
 --- !u!1 &4069724773960763226
 GameObject:
   m_ObjectHideFlags: 0

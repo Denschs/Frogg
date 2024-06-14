@@ -7,14 +7,15 @@ public class RandomizeWingDesign : MonoBehaviour
     SpriteRenderer fullwingSprite;
     SpriteRenderer wingDesignSprite;
     [SerializeField] Sprite[] wingsdesign;
+    [SerializeField] Color32[] wingsColors;
 
     void Start()
     {
         fullwingSprite = GetComponent<SpriteRenderer>();
         wingDesignSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         
-        fullwingSprite.color = GetRandomColor();
-        wingDesignSprite.color = GetRandomColor();
+        fullwingSprite.color = GetRandomColorFromList();
+        wingDesignSprite.color = GetRandomColorFromList();
 
         wingDesignSprite.sprite = wingsdesign[Random.Range(0, wingsdesign.Length)];
 
@@ -23,5 +24,9 @@ public class RandomizeWingDesign : MonoBehaviour
     private Color32 GetRandomColor()
     {
         return new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
+    }
+    private Color32 GetRandomColorFromList()
+    {
+        return wingsColors[Random.Range(0, wingsColors.Length)];
     }
 }
