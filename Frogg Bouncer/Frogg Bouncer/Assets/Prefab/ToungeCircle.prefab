@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1718549585
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.8588236, g: 0.38823533, b: 0.67058825, a: 1}
@@ -156,7 +156,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1718549585
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Time: 2
   m_PreviewTimeScale: 1
@@ -233,7 +233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
-  extraSpeedFactor: 1.5
+  extraSpeedFactor: 2
+  audioSource: {fileID: 0}
   fairyGulbClip: {fileID: 8300000, guid: 1d7804fd7a1d9f441867daf85b5aa7e9, type: 3}
   butterflyGulbClip: {fileID: 8300000, guid: 3d226633169cbe14e8a2dfd0e14f20c1, type: 3}
 --- !u!58 &7093881278712991829

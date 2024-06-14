@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] EnemyType enemyType;
     [SerializeField] float accelerationValue = 0.8f;
+    [SerializeField] float accelerationValueMutiple = 1f;
     public float speed = 3f;
 
     private void Update()
@@ -24,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         // Bewege den Feind nach links basierend auf der Geschwindigkeit
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-        speed += Time.deltaTime* accelerationValue;
+        speed += Time.deltaTime* (accelerationValue* accelerationValueMutiple);
 
     }
     public EnemyType GetEnemyType()
@@ -34,5 +35,9 @@ public class EnemyMovement : MonoBehaviour
     public void SetaccelerationValue(float newaccelerationValue)
     {
           accelerationValue = newaccelerationValue;
+    }
+    public void SetaccelerationValueMutiple(float newMutiple)
+    {
+        accelerationValueMutiple = newMutiple;
     }
 }

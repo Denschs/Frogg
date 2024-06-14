@@ -18,6 +18,11 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private bool noAcclearationEnemey = false;
 
+    [SerializeField] private float AcclearationMutiple = 0;
+    [SerializeField] private float AccleartionIncreaseStart = 0.1f;
+    [SerializeField] private float AccleartionIncreasePostStart = 0.02f;
+    bool firstEnemy = true;
+
     private void Start()
     {
         // Starte die Methode zum Spawnen von Feinden
@@ -43,29 +48,49 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.GetComponent<EnemyMovement>()?.SetaccelerationValue(0); 
         }
+        if (AcclearationMutiple < 1)
+        {
+            AcclearationMutiple += AccleartionIncreaseStart;
+            enemy.GetComponent<EnemyMovement>()?.SetaccelerationValueMutiple(AcclearationMutiple);
+        }
+        else
+        {
+            AcclearationMutiple += AccleartionIncreasePostStart;
+            enemy.GetComponent<EnemyMovement>()?.SetaccelerationValueMutiple(AcclearationMutiple);
+        }
+       
 
         Debug.Log("<color=" + randomEnemy.Name + ">●</color> Chance: <b>" + randomEnemy.Chance + "</b>%");
     }
 
     private Enemy GetRandomEnemy()
     {
-        float totalChance = 0f;
-        foreach (Enemy enemy in enemies)
+        if (firstEnemy)
         {
-            totalChance += enemy.Chance;
+            firstEnemy = false;
+            return enemies[0];
         }
-
-        float randomValue = UnityEngine.Random.Range(0f, totalChance);
-        float cumulativeChance = 0f;
-        foreach (Enemy enemy in enemies)
+        else
         {
-            cumulativeChance += enemy.Chance;
-            if (randomValue <= cumulativeChance)
+            float totalChance = 0f;
+            foreach (Enemy enemy in enemies)
             {
-                return enemy;
+                totalChance += enemy.Chance;
             }
+
+            float randomValue = UnityEngine.Random.Range(0f, totalChance);
+            float cumulativeChance = 0f;
+            foreach (Enemy enemy in enemies)
+            {
+                cumulativeChance += enemy.Chance;
+                if (randomValue <= cumulativeChance)
+                {
+                    return enemy;
+                }
+            }
+            // Fallback, should never reach here
+            return enemies[0];
         }
-        // Fallback, should never reach here
-        return enemies[0];
+        
     }
 }
