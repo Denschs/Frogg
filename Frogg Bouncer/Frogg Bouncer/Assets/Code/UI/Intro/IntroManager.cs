@@ -16,7 +16,7 @@ public class IntroManager : MonoBehaviour
 
     private int introIndex = -1;
 
-    public GameObject mainMenu;
+    public GameObject htpCanvas;
 
     void Start()
     {
@@ -75,6 +75,6 @@ public class IntroManager : MonoBehaviour
             {
                 bild.SetActive(false);
             }
-            gameObject.SetActive(true);
+            htpCanvas.SetActive(false);
         }
 }

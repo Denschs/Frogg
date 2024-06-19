@@ -20,7 +20,8 @@ public class HighscoreManager : MonoBehaviour
         // Beim Starten des Spiels die Highscores aus den PlayerPrefs laden
         LoadHighscores();
         // Aktualisiere die angezeigten Highscores
-        UpdateHighscoreDisplay();  
+        UpdateHighscoreDisplay();
+        //PlayerPrefs.DeleteAll();
     }
 
     public void SaveHighscores(int fairiesGuestsScore, int butterfliesFedScore)

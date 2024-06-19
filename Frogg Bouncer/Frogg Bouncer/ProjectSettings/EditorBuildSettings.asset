@@ -15,4 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_ReverseTarget.unity
     guid: ee7181cf1db5bfd4e89483ffd4a3aff5
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 6ea98de67c6530e478cc0e77c881b769, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: eb1cdfed2887ed042a102013a4d8c6cc, type: 2}

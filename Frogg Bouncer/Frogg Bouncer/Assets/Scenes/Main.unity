@@ -412,17 +412,6 @@ Transform:
   - {fileID: 1800948994}
   m_Father: {fileID: 983889538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &53172695 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2520471301513027972, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
-  m_PrefabInstance: {fileID: 768675918}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &86890529
 GameObject:
   m_ObjectHideFlags: 0
@@ -6524,17 +6513,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 285281312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829843692 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5074054047246954986, guid: 66d2cdac77ca1374abcf1c9d18393803, type: 3}
-  m_PrefabInstance: {fileID: 768675918}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &846437637
 GameObject:
   m_ObjectHideFlags: 0
@@ -8624,7 +8602,7 @@ GameObject:
   - component: {fileID: 1083123133}
   - component: {fileID: 1083123132}
   m_Layer: 5
-  m_Name: fairiesAtPardy (2)
+  m_Name: fairyHighscore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9085,8 +9063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highscoreFairiesGuests: 0
   highscoreButterfliesFed: 0
-  fairiesHighscoreText: {fileID: 53172695}
-  butterfliesHighscoreText: {fileID: 829843692}
+  fairiesHighscoreText: {fileID: 1454316429}
+  butterfliesHighscoreText: {fileID: 1083123132}
 --- !u!4 &1183890760
 Transform:
   m_ObjectHideFlags: 0
@@ -9114,7 +9092,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1486930488820925267, guid: 7cb9b07d35bc22445a2dab715ff6b04a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 10f948d2906d5004cbeca2353c5d6200, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.359
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10610,7 +10588,7 @@ GameObject:
   - component: {fileID: 1454316430}
   - component: {fileID: 1454316429}
   m_Layer: 5
-  m_Name: EatButterflyPoints (2)
+  m_Name: ButterflyHighscore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19067,7 +19045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2040217550
 RectTransform:
   m_ObjectHideFlags: 0
